@@ -397,7 +397,7 @@ convert:
 
 
 
-#define LOG_LEVEL   DEBUG
+#define LOG_LEVEL   EVENT
 
 static char LOG_GLOBAL_BUFFER[1024];
 PELION_MUTEX log_mtx;

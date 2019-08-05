@@ -25,7 +25,7 @@ void *request_generator_infinite_loop(void *arg) {
 
         } else {
 
-            pelion_log(WARN, "Not enqueuing r%u, as tokens exceeded\n\n");
+            pelion_log(WARN, "Not enqueuing r%u in Q1, as tokens exceeded\n");
         }
 
     }
