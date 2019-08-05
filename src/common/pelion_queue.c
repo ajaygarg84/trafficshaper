@@ -4,8 +4,11 @@
 #include "pelion_mutex.h"
 #include "pelion_system.h"
 #include "pelion_log.h"
+#include "pelion_cmd_args.h"
+#include "pelion_time.h"
 
-void add_new_node(struct Pelion_Queue *queue, unsigned int tokens) {
+void
+add_new_node(struct Pelion_Queue *queue, unsigned int tokens) {
 
     struct Pelion_Queue_Node *new_node =
         (struct Pelion_Queue_Node *) pelion_malloc(
@@ -20,6 +23,7 @@ void add_new_node(struct Pelion_Queue *queue, unsigned int tokens) {
      * If we reach here, we have the node, so set the payload ..
      */
     new_node->tokens = tokens;
+    new_node->time_us = get_current_time_us();
 
 
     /*
@@ -44,18 +48,47 @@ void add_new_node(struct Pelion_Queue *queue, unsigned int tokens) {
 }
 
 
-struct Pelion_Queue_Node* get_oldest_node(struct Pelion_Queue *queue) {
+struct Pelion_Queue_Node*
+get_oldest_node(struct Pelion_Queue *queue, unsigned char do_locking) {
 
-    struct Pelion_Queue_Node *result = queue->tail;
+    struct Pelion_Queue_Node *result = NULL;
 
     /*
      * Adjust the head and tail pointers.
      */
-    pelion_acquire_mutex(&(queue->mtx));
+    if(do_locking == 1) {
+        pelion_acquire_mutex(&(queue->mtx));
+    }
+
+    result = queue->tail;
 
     if(queue->tail != NULL) {
         queue->tail = queue->tail->next;
     }
 
+    if(do_locking == 1) {
+        pelion_release_mutex(&(queue->mtx));
+    }
+
+    return result;
+}
+
+
+struct Pelion_Queue_Node*
+get_oldest_node_if_applicable(struct Pelion_Queue *queue,
+                              unsigned int tokens) {
+
+    struct Pelion_Queue_Node *result = NULL;
+
+    pelion_acquire_mutex(&(queue->mtx));
+
+    if(queue->tail != NULL) {
+        if(queue->tail->tokens <= tokens) {
+            result = get_oldest_node(queue, 0);
+        }
+    }
+
     pelion_release_mutex(&(queue->mtx));
+
+    return result;
 }

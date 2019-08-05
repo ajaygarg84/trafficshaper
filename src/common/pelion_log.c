@@ -404,9 +404,9 @@ PELION_MUTEX log_mtx;
 
 void pelion_log(int level, const char *format, ...) {
 
-    memset(LOG_GLOBAL_BUFFER, 0, sizeof(LOG_GLOBAL_BUFFER));
-
     if(level <= LOG_LEVEL) {
+
+        memset(LOG_GLOBAL_BUFFER, 0, sizeof(LOG_GLOBAL_BUFFER));
 
         pelion_acquire_mutex(&log_mtx);
 

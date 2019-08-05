@@ -16,7 +16,8 @@ FILES = 	src/common/main.c 					\
 		src/device/$(DEVICE)/device_pelion_mutex.c		\
 		src/device/$(DEVICE)/device_pelion_time.c		\
 									\
-		src/common/apps/threads/request_generator.c
+		src/common/apps/threads/request_generator.c		\
+		src/common/apps/threads/token_generator.c
 
 build:
 	gcc $(INCLUDES) $(FILES) -o trafficshaper -lpthread

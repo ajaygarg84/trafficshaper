@@ -20,4 +20,6 @@ extern struct Pelion_Globals pelion_globals;
 
 void parse_cmd_line_args();
 
+#define INVALID_TOKEN  0
+
 #endif
