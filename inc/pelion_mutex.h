@@ -3,8 +3,9 @@
 
 #include "device_defines.h"
 
-void acquire_mutex(PELION_MUTEX *mtx);
-void release_mutex(PELION_MUTEX *mtx);
+void pelion_init_mutex(PELION_MUTEX *mtx);
+void pelion_acquire_mutex(PELION_MUTEX *mtx);
+void pelion_release_mutex(PELION_MUTEX *mtx);
 
 #endif
 

@@ -2,6 +2,7 @@
 
 #include "pelion_cmd_args.h"
 #include "pelion_system.h"
+#include "pelion_log.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -55,7 +56,7 @@ void parse_cmd_line_args(int argc, char *argv[]) {
                         (argv[i][1]) == arg_types[j].id) {
                         *(arg_types[j].value) = atoi(argv[i + 1]);
 
-                        debug_log("[-%c] [%s] ==> [%d]\n",
+                        pelion_log(DEBUG, "[-%c] [%s] ==> [%d]\n",
                                   arg_types[j].id,
                                   arg_types[j].user_friendly_name,
                                   *(arg_types[j].value));
@@ -80,7 +81,7 @@ void parse_cmd_line_args(int argc, char *argv[]) {
         } else {
             if(*(arg_types[j].value) <= 0)
             {
-                debug_log("Invalid/Unknown value for [-%c] [%s], "
+                pelion_log(ERROR, "Invalid/Unknown value for [-%c] [%s], "
                           "exiting\n",
                           arg_types[j].id,
                           arg_types[j].user_friendly_name);
