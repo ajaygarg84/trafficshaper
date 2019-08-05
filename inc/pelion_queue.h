@@ -20,5 +20,6 @@ extern struct Pelion_Queue Q1;
 extern struct Pelion_Queue Q2;
 
 void add_new_node(struct Pelion_Queue *queue, unsigned int tokens);
+struct Pelion_Queue_Node* get_oldest_node(struct Pelion_Queue *queue);
 
 #endif

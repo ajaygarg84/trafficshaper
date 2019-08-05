@@ -30,11 +30,30 @@ void add_new_node(struct Pelion_Queue *queue, unsigned int tokens) {
      */
     acquire_mutex(&(queue->mtx));
 
-    new_node->next = queue->head;
+    if(queue->head != NULL) {
+        queue->head->next = new_node;
+    }
     queue->head = new_node;
 
     if(queue->tail == NULL) {
         queue->tail = new_node;
+    }
+
+    release_mutex(&(queue->mtx));
+}
+
+
+struct Pelion_Queue_Node* get_oldest_node(struct Pelion_Queue *queue) {
+
+    struct Pelion_Queue_Node *result = queue->tail;
+
+    /*
+     * Adjust the head and tail pointers.
+     */
+    acquire_mutex(&(queue->mtx));
+
+    if(queue->tail != NULL) {
+        queue->tail = queue->tail->next;
     }
 
     release_mutex(&(queue->mtx));
