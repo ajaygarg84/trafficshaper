@@ -15,7 +15,19 @@ void *request_generator_infinite_loop(void *arg) {
         pelion_log(EVENT, "r%u arrives, need %d tokens\n",
                           Q1.requests_enqueued,
                           pelion_globals.R_tokens_per_request);
-        pelion_log(EVENT, "r%u enters Q1\n");
+
+
+        if(pelion_globals.R_tokens_per_request <
+           pelion_globals.L_max_unused_tokens) {
+
+            add_new_node(&Q1, pelion_globals.R_tokens_per_request);
+            pelion_log(EVENT, "r%u enters Q1\n", Q1.requests_enqueued);
+
+        } else {
+
+            pelion_log(WARN, "Not enqueuing r%u, as tokens exceeded\n\n");
+        }
+
     }
 }
 
