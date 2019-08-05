@@ -2,10 +2,13 @@
 #include "pelion_cmd_args.h"
 #include "pelion_log.h"
 #include "pelion_mutex.h"
+#include "pelion_thread.h"
+#include "pelion_time.h"
 
 struct Pelion_Queue Q1;
 struct Pelion_Queue Q2;
 
+void* request_generator_infinite_loop(void *arg);
 
 int main(int argc, char *argv[]) {
 
@@ -25,6 +28,15 @@ int main(int argc, char *argv[]) {
      * Fetch the configurable parameters passed via command line.
      */
     parse_cmd_line_args(argc, argv);
+
+    /*
+     * Start the threads.
+     */
+    start_thread(request_generator_infinite_loop, NULL);
+
+    while(1) {
+        pelion_delay_ms(1000);
+    }
 
     return 0;
 }

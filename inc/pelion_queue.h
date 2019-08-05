@@ -12,7 +12,11 @@ struct Pelion_Queue_Node {
 struct Pelion_Queue {
     struct Pelion_Queue_Node *head;
     struct Pelion_Queue_Node *tail;
+
     PELION_MUTEX mtx;
+
+    unsigned int requests_enqueued;
+    unsigned int requests_dequeued;
 };
 
 

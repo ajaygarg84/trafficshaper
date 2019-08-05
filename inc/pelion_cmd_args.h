@@ -17,6 +17,7 @@ struct Pelion_Globals {
 };
 
 extern struct Pelion_Globals pelion_globals;
+
 void parse_cmd_line_args();
 
 #endif
