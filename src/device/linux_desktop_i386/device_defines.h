@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #define error_log printf
+#define debug_log printf
 
 #endif
 
