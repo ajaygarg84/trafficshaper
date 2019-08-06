@@ -55,10 +55,20 @@ void *token_generator_infinite_loop(void *arg) {
                 }
 
                 /*
-                 * Insert the node into Q2, and log.
+                 * Insert the node into Q2.
                  */
                 enqueue_node_existing(&Q2, result);
 
+                /*
+                 * Signal the service thread, as there is some data
+                 * ready for processing.
+                 */
+                pelion_wake_one_thread_on_condition_variable(&(Q2.cond));
+
+
+                /*
+                 * Log the entry-into-Q2 event.
+                 */
                 pelion_log(EVENT, "r%u enters Q2\n",
                                   result->request_number);
 

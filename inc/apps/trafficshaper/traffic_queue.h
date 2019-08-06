@@ -20,6 +20,7 @@ struct Traffic_Queue {
     struct Traffic_Queue_Node *tail;
 
     PELION_MUTEX mtx;
+    PELION_CONDITION_VARIABLE cond;
 
     unsigned int requests_enqueued;
 };

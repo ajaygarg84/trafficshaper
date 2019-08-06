@@ -13,6 +13,8 @@ struct Traffic_Queue Q2;
 
 void* request_generator_infinite_loop(void *arg);
 void* token_generator_infinite_loop(void *arg);
+void* request_servicer_infinite_loop_no_busy_waiting(void *arg);
+
 
 struct Arg_Type arg_types_defs[] = {
     {
@@ -47,27 +49,34 @@ struct Arg_Type *arg_types = (struct Arg_Type *) arg_types_defs;
 int main(int argc, char *argv[]) {
 
     /*
-     * Initialize the mutexes used in the system.
+     * Initialize the mutexes and condition-variables used in the system.
      */
     pelion_init_mutex(&log_mtx);
     pelion_init_mutex(&(Q1.mtx));
     pelion_init_mutex(&(Q2.mtx));
+
+    pelion_init_condition_variable(&(Q2.cond));
+
 
     /*
      * Initialize the backend logger.
      */
     init_log_on_device();
 
+
     /*
      * Fetch the configurable parameters passed via command line.
      */
     parse_cmd_line_args(argc, argv);
+
 
     /*
      * Start the threads.
      */
     pelion_start_thread(request_generator_infinite_loop, NULL);
     pelion_start_thread(token_generator_infinite_loop, NULL);
+    pelion_start_thread(request_servicer_infinite_loop_no_busy_waiting, NULL);
+
 
     while(1) {
         pelion_delay_ms(1000);
