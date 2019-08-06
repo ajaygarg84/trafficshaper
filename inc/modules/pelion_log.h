@@ -11,6 +11,7 @@
 
 
 extern PELION_MUTEX log_mtx;
+
 void pelion_log(int level, const char *format, ...);
 void init_log_on_device();
 void write_log_to_device(const char * const log);
