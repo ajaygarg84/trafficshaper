@@ -4,7 +4,6 @@
 #include "pelion_mutex.h"
 #include "pelion_system.h"
 #include "pelion_log.h"
-#include "pelion_cmd_args.h"
 #include "pelion_time.h"
 
 void
@@ -23,7 +22,7 @@ add_new_node(struct Traffic_Queue *queue, unsigned int tokens) {
      * If we reach here, we have the node, so set the payload ..
      */
     new_node->tokens = tokens;
-    new_node->time_us = get_current_time_us();
+    new_node->time_us = get_current_timestamp_us();
 
 
     /*

@@ -4,6 +4,7 @@
 #include <stdarg.h>
 
 
+
 void
 pelion_varargs(char *out, const char *pcString, va_list vaArgP);
 
@@ -13,6 +14,16 @@ pelion_sprintf(char *out, const char *format, ...);
 void
 pelion_convert_numeric_to_float(long num, unsigned short base,
                                 char *dest, int max_dest_size);
+
+void
+parse_cmd_line_args(int argc, char *argv[]);
+
+struct Arg_Type {
+
+    char id;
+    char *user_friendly_name;
+    int *value;
+};
 
 #endif
 

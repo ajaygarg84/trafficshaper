@@ -11,7 +11,7 @@ pelion_delay_ms(unsigned int ms) {
 
 
 unsigned long
-get_current_time_us() {
+get_current_timestamp_us() {
 
     struct timeval current_time;
     unsigned long result = 0;

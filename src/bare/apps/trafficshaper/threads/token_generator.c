@@ -1,9 +1,9 @@
 #include "pelion_thread.h"
 #include "pelion_log.h"
-#include "pelion_cmd_args.h"
 #include "pelion_time.h"
 #include "pelion_stdlib.h"
 
+#include "app.h"
 #include "traffic_queue.h"
 
 void *token_generator_infinite_loop(void *arg) {
@@ -29,7 +29,7 @@ void *token_generator_infinite_loop(void *arg) {
                     char str_time_in_us_in_Q1[20] = {0};
 
                     unsigned long time_in_us_in_Q1 =
-                        get_current_time_us() - result->time_us;
+                        get_current_timestamp_us() - result->time_us;
 
                     pelion_convert_numeric_to_float(
                             time_in_us_in_Q1,

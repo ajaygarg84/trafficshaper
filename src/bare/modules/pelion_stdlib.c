@@ -1,8 +1,10 @@
 #include "pelion_stdlib.h"
+#include "pelion_system.h"
+#include "pelion_log.h"
 
 #include <string.h>
 #include <stdarg.h>
-
+#include <stdlib.h>
 
 static const char * const g_pcHex = "0123456789abcdef";
 
@@ -415,4 +417,66 @@ pelion_convert_numeric_to_float(long num, unsigned short base,
 
     pelion_sprintf(dest, "%s%u.%u", prefix, num / base, num % base);
 }
+
+
+extern struct Arg_Type *arg_types;
+
+void
+parse_cmd_line_args(int argc, char *argv[]) {
+
+    int i = 0, j = 0;
+
+    for(i = 0; i < argc; i++) {
+
+        if(argv[i][0] == '-') {
+
+            j = 0;
+            while(1) {
+
+                if(arg_types[j].value == NULL) {
+                    break;
+
+                } else {
+                    if( (strlen(argv[i]) == 2) &&
+                        (argv[i][1]) == arg_types[j].id) {
+                        *(arg_types[j].value) = atoi(argv[i + 1]);
+
+                        pelion_log(DEBUG, "[-%c] [%s] ==> [%d]\n",
+                                  arg_types[j].id,
+                                  arg_types[j].user_friendly_name,
+                                  *(arg_types[j].value));
+
+                        break;
+                    }
+                }
+
+                j++;
+            }
+        }
+    }
+
+    /*
+     * Now check whether any field could not be filled up.
+     */
+    j = 0;
+    while(1) {
+        if(arg_types[j].value == NULL) {
+            break;
+
+        } else {
+            if(*(arg_types[j].value) <= 0)
+            {
+                pelion_log(ERROR, "Invalid/Unknown value for [-%c] [%s], "
+                          "exiting\n",
+                          arg_types[j].id,
+                          arg_types[j].user_friendly_name);
+
+                pelion_exit();
+            }
+        }
+
+        j++;
+    }
+}
+
 
