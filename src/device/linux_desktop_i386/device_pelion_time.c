@@ -3,6 +3,20 @@
 #include <sys/time.h>
 #include <unistd.h>
 
+/**
+ * @file device_pelion_time.c
+ */
+
+/**
+ * <b>(device-specific)</b>
+ *
+ * @param ms
+ * Number of milli-seconds.
+ *
+ *
+ * This method causes the current-thread to sleep for <b>ms</b>
+ * milli-seconds.
+ */
 void
 pelion_delay_ms(unsigned int ms) {
 
@@ -10,8 +24,13 @@ pelion_delay_ms(unsigned int ms) {
 }
 
 
+/**
+ * <b>(device-specific)</b>
+ *
+ * This method gets the current-timestamp in micro-seconds.
+ */
 unsigned long
-get_current_timestamp_us() {
+pelion_get_current_timestamp_us() {
 
     struct timeval current_time;
     unsigned long result = 0;

@@ -3,6 +3,10 @@
 
 #include "device_defines.h"
 
+/**
+ * @file pelion_log.h
+ */
+
 #define EVENT   0
 #define ERROR   1
 #define WARN    2

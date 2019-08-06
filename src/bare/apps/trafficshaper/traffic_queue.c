@@ -60,7 +60,7 @@ enqueue_node_new(struct Traffic_Queue *queue, unsigned int tokens) {
      * If we reach here, we have the node, so set the payload ..
      */
     new_node->tokens = tokens;
-    new_node->time_us = get_current_timestamp_us();
+    new_node->time_us = pelion_get_current_timestamp_us();
 
     queue->requests_enqueued = queue->requests_enqueued + 1;
     new_node->request_number = queue->requests_enqueued;

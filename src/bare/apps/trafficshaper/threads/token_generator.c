@@ -68,7 +68,7 @@ void *token_generator_infinite_loop(void *arg) {
                     char str_time_in_us_in_Q1[20] = {0};
 
                     unsigned long time_in_us_in_Q1 =
-                        get_current_timestamp_us() - result->time_us;
+                        pelion_get_current_timestamp_us() - result->time_us;
 
                     pelion_convert_numeric_to_float(
                             time_in_us_in_Q1,
