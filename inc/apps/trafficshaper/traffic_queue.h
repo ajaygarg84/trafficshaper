@@ -3,19 +3,19 @@
 
 #include "device_defines.h"
 
-struct Pelion_Queue_Node {
+struct Traffic_Queue_Node {
 
     unsigned int tokens;
     unsigned long time_us;
 
-    struct Pelion_Queue_Node *next;
+    struct Traffic_Queue_Node *next;
 };
 
 
-struct Pelion_Queue {
+struct Traffic_Queue {
 
-    struct Pelion_Queue_Node *head;
-    struct Pelion_Queue_Node *tail;
+    struct Traffic_Queue_Node *head;
+    struct Traffic_Queue_Node *tail;
 
     PELION_MUTEX mtx;
 
@@ -24,16 +24,16 @@ struct Pelion_Queue {
 };
 
 
-extern struct Pelion_Queue Q1;
-extern struct Pelion_Queue Q2;
+extern struct Traffic_Queue Q1;
+extern struct Traffic_Queue Q2;
 
 void
-add_new_node(struct Pelion_Queue *queue, unsigned int tokens);
+add_new_node(struct Traffic_Queue *queue, unsigned int tokens);
 
-struct Pelion_Queue_Node*
-get_oldest_node(struct Pelion_Queue *queue, unsigned char do_locking);
+struct Traffic_Queue_Node*
+get_oldest_node(struct Traffic_Queue *queue, unsigned char do_locking);
 
-struct Pelion_Queue_Node*
-get_oldest_node_if_applicable(struct Pelion_Queue *queue,
+struct Traffic_Queue_Node*
+get_oldest_node_if_applicable(struct Traffic_Queue *queue,
                               unsigned int tokens);
 #endif

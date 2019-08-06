@@ -6,8 +6,8 @@
 
 #include "traffic_queue.h"
 
-struct Pelion_Queue Q1;
-struct Pelion_Queue Q2;
+struct Traffic_Queue Q1;
+struct Traffic_Queue Q2;
 
 void* request_generator_infinite_loop(void *arg);
 void* token_generator_infinite_loop(void *arg);

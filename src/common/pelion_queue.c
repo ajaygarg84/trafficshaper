@@ -8,11 +8,11 @@
 #include "pelion_time.h"
 
 void
-add_new_node(struct Pelion_Queue *queue, unsigned int tokens) {
+add_new_node(struct Traffic_Queue *queue, unsigned int tokens) {
 
-    struct Pelion_Queue_Node *new_node =
-        (struct Pelion_Queue_Node *) pelion_malloc(
-                          sizeof(struct Pelion_Queue_Node));
+    struct Traffic_Queue_Node *new_node =
+        (struct Traffic_Queue_Node *) pelion_malloc(
+                          sizeof(struct Traffic_Queue_Node));
 
     if(new_node == NULL) {
         pelion_log(ERROR, "We have run out of memory, exiting system ..\n");
@@ -48,10 +48,10 @@ add_new_node(struct Pelion_Queue *queue, unsigned int tokens) {
 }
 
 
-struct Pelion_Queue_Node*
-get_oldest_node(struct Pelion_Queue *queue, unsigned char do_locking) {
+struct Traffic_Queue_Node*
+get_oldest_node(struct Traffic_Queue *queue, unsigned char do_locking) {
 
-    struct Pelion_Queue_Node *result = NULL;
+    struct Traffic_Queue_Node *result = NULL;
 
     /*
      * Adjust the head and tail pointers.
@@ -74,11 +74,11 @@ get_oldest_node(struct Pelion_Queue *queue, unsigned char do_locking) {
 }
 
 
-struct Pelion_Queue_Node*
-get_oldest_node_if_applicable(struct Pelion_Queue *queue,
+struct Traffic_Queue_Node*
+get_oldest_node_if_applicable(struct Traffic_Queue *queue,
                               unsigned int tokens) {
 
-    struct Pelion_Queue_Node *result = NULL;
+    struct Traffic_Queue_Node *result = NULL;
 
     pelion_acquire_mutex(&(queue->mtx));
 

@@ -17,7 +17,7 @@ void *token_generator_infinite_loop(void *arg) {
         remaining_tokens++;
 
         while(1) {
-            struct Pelion_Queue_Node *result =
+            struct Traffic_Queue_Node *result =
                 get_oldest_node_if_applicable(&Q1, remaining_tokens);
 
             if(result != NULL) {
