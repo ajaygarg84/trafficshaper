@@ -6,12 +6,16 @@
  * @file device_pelion_log.c
  */
 
-void init_log_on_device() {
+void
+init_log_on_device() {
 }
 
-void write_log_to_device(const char * const log) {
+
+void
+write_log_to_device(const char * const log) {
     printf("%s", log);
 }
+
 
 #include <stdio.h>
 

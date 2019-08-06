@@ -10,17 +10,17 @@
 /**
  * <b>(device-specific)</b>
  *
- * @param ms
- * Number of milli-seconds.
+ * @param us
+ * Number of micro-seconds.
  *
  *
- * This method causes the current-thread to sleep for <b>ms</b>
+ * This method causes the current-thread to sleep for <b>us</b>
  * milli-seconds.
  */
 void
-pelion_delay_ms(unsigned int ms) {
+pelion_delay_us(unsigned int us) {
 
-    usleep(ms * 1000);
+    usleep(us);
 }
 
 

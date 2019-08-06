@@ -33,16 +33,14 @@
  *
  * d)\n
  * Go to step a).
- *
  */
-
 void *token_generator_infinite_loop(void *arg) {
 
     unsigned long remaining_tokens = 0;
 
     while(1)
     {
-        pelion_delay_ms(pelion_globals.x_tokens_rate_T2 * 1000);
+        pelion_delay_us(pelion_globals.x_tokens_rate_T2 * 1000000U);
 
         remaining_tokens++;
 
