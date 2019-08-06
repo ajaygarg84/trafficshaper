@@ -25,8 +25,8 @@ void* request_servicer_infinite_loop_no_busy_waiting(void *arg);
 
 struct Arg_Type arg_types_defs[] = {
     {
-        'r', "request-rate of T1",
-        &(pelion_globals.r_request_rate_T1)
+        'r', "request-generation-interval (in seconds) by T1",
+        &(pelion_globals.r_request_generation_interval_T1)
     },
     {
         'R', "tokens required by each request",
@@ -37,12 +37,12 @@ struct Arg_Type arg_types_defs[] = {
         &(pelion_globals.L_max_unused_tokens)
     },
     {
-        'x', "token-rate of T2",
-        &(pelion_globals.x_tokens_rate_T2),
+        'x', "token-generation interval (in seconds) by T2",
+        &(pelion_globals.x_token_generation_interval_T2),
     },
     {
-        't', "time required for processing of each request by T3",
-        &(pelion_globals.t_time_per_request_T3)
+        't', "time required for processing of each request by S",
+        &(pelion_globals.t_time_per_request_S)
     },
     {
         'd', "delimiter",

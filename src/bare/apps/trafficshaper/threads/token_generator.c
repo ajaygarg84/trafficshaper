@@ -42,7 +42,8 @@ void *token_generator_infinite_loop(void *arg) {
 
     while(1)
     {
-        pelion_delay_us(pelion_globals.x_tokens_rate_T2 * 1000000U);
+        pelion_delay_us(
+                pelion_globals.x_token_generation_interval_T2 * 1000000U);
 
         if(remaining_tokens < pelion_globals.L_max_unused_tokens) {
             remaining_tokens++;
