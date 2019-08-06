@@ -52,7 +52,9 @@ struct Arg_Type arg_types_defs[] = {
 
 struct Arg_Type *arg_types = (struct Arg_Type *) arg_types_defs;
 
-
+/**
+ * Entry-Point function of main-thread.
+ */
 int main(int argc, char *argv[]) {
 
     /*
