@@ -534,7 +534,9 @@ parse_cmd_line_args(int argc, char *argv[]) {
 
                 } else {
                     if( (strlen(argv[i]) == 2) &&
-                        (argv[i][1]) == arg_types[j].id) {
+                        (argv[i][1] == arg_types[j].id) &&
+                        (i < (argc - 1))
+                      ) {
                         *(arg_types[j].value) = atoi(argv[i + 1]);
 
                         pelion_log(DEBUG, "[-%c] [%s] ==> [%d]\n",
