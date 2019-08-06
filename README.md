@@ -1,3 +1,8 @@
+# Requirements
+
+The development and testing of this project has been done on Ubuntu-16 running on a 32-bit intel processor.      
+In general, this project *should* work on any linux on any processor.
+
 # Getting Started
 
 ## One Time Operation
