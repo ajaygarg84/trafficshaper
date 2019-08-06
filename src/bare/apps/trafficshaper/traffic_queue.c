@@ -28,6 +28,8 @@ enqueue_node(struct Traffic_Queue *queue,
         pelion_acquire_mutex(&(queue->mtx));
     }
 
+    node->next = NULL;
+
     if(queue->head != NULL) {
         queue->head->next = node;
     }
@@ -37,11 +39,9 @@ enqueue_node(struct Traffic_Queue *queue,
         queue->tail = node;
     }
 
-
     if(do_locking == 1) {
         pelion_release_mutex(&(queue->mtx));
     }
-
 }
 
 void
