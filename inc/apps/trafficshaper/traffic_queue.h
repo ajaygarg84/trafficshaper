@@ -3,6 +3,10 @@
 
 #include "device_defines.h"
 
+/**
+ * @file traffic_queue.h
+ */
+
 struct Traffic_Queue_Node {
 
     unsigned int tokens;

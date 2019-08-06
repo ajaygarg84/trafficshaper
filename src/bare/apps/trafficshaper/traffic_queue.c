@@ -8,7 +8,27 @@
 
 #include "traffic_queue.h"
 
+/**
+ * @file traffic_queue.c
+ */
 
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param queue
+ * Pointer to the queue in which node is to be inserted.
+ *
+ * @param node
+ * Node to be inserted.
+ *
+ * @param do_locking
+ * Determines whether we need to acquire mutex on the queue
+ * (0: No, 1: Yes)
+ *
+ *
+ * This method enqueues a node in the queue.
+ *
+ */
 static void
 enqueue_node(struct Traffic_Queue *queue,
              struct Traffic_Queue_Node *node,
@@ -49,6 +69,23 @@ enqueue_node(struct Traffic_Queue *queue,
     }
 }
 
+
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param queue
+ * Queue in which request-node is to be inserted.
+ *
+ * @param request_number
+ * Request-number to be assigned to the newly created request-node.
+ *
+ * @param tokens
+ * Tokens to be assigned to the newly created request-node.
+ *
+ *
+ * This method allocates a new node for the request, and then passes
+ * onto <b>enqueue_node</b> method to enqueue the node in queue.
+ */
 void
 enqueue_node_new(struct Traffic_Queue *queue,
                  unsigned int request_number,
@@ -77,6 +114,19 @@ enqueue_node_new(struct Traffic_Queue *queue,
 }
 
 
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param queue
+ * Queue in which the passed request-node needs to be enqueued.
+ *
+ * @param node
+ * Request-node to be inserted into the queue.
+ *
+ *
+ * This method adds an already existing node to the queue (i.e. no new
+ * memory allocation is done).
+ */
 void
 enqueue_node_existing(struct Traffic_Queue *queue,
                       struct Traffic_Queue_Node *node) {
@@ -85,6 +135,28 @@ enqueue_node_existing(struct Traffic_Queue *queue,
 }
 
 
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param queue
+ * Queue from which the oldest node is to be dequeued.
+ *
+ * @param do_locking
+ * Specifies whether we need to lock the queue for operations
+ * (0:No, 1:Yes).
+ *
+ * @param remaining_tokens
+ * Number of remaining tokens from the thread, that is calling this
+ * function.
+ *
+ * @param do_log_remaining_tokens
+ * Specified whether we need to log the information about
+ * <b>remaining_tokens</b>
+ *
+ * This method returns the oldest node in the queue.
+ * If queue is empty, NULL is returned.
+ *
+ */
 struct Traffic_Queue_Node*
 get_oldest_node(struct Traffic_Queue *queue,
                 unsigned char do_locking,
@@ -153,6 +225,18 @@ get_oldest_node(struct Traffic_Queue *queue,
 }
 
 
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param queue
+ * Pointer to queue
+ *
+ * @param tokens
+ * Number of tokens currently possessed by the calling thread.
+ *
+ *
+ * This method removes and returns the oldest node conditionally.
+ */
 struct Traffic_Queue_Node*
 get_oldest_node_if_applicable(struct Traffic_Queue *queue,
                               unsigned int tokens) {
