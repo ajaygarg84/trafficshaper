@@ -97,6 +97,9 @@ get_oldest_node(struct Traffic_Queue *queue, unsigned char do_locking) {
     if(queue->tail != NULL) {
 
         queue->tail = queue->tail->next;
+        if(queue->tail == NULL) {
+            queue->head = NULL;
+        }
     }
 
     if(do_locking == 1) {
