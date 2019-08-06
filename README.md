@@ -92,8 +92,8 @@ To start navigating the html-version documentation, please start by opening the 
      
 To regenerate/update the doxygen documentation, following commands should be run:
 
-__*cd ~/trafficshaper*__     
-__*doxygen doxygen.cfg*__     
+      cd ~/trafficshaper    
+      doxygen doxygen.cfg     
 
 
 
