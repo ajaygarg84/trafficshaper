@@ -1,5 +1,5 @@
-#ifndef I_PELION_QUEUE
-#define I_PELION_QUEUE
+#ifndef I_TRAFFIC_QUEUE
+#define I_TRAFFIC_QUEUE
 
 #include "device_defines.h"
 
