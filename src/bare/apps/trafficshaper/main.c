@@ -7,6 +7,9 @@
 #include "app.h"
 #include "traffic_queue.h"
 
+#include <stdio.h>
+
+
 /**
  * @file main.c
  */

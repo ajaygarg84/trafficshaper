@@ -6,6 +6,8 @@
 #include "app.h"
 #include "traffic_queue.h"
 
+#include <stdio.h>
+
 /**
  * @file token_generator.c
  */

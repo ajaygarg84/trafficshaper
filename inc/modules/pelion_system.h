@@ -6,7 +6,7 @@
  */
 
 void *pelion_malloc(unsigned int bytes);
-void *pelion_free(void *ptr);
+void pelion_free(void *ptr);
 void pelion_exit();
 
 #endif

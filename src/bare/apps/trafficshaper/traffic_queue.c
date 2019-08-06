@@ -8,6 +8,8 @@
 
 #include "traffic_queue.h"
 
+#include <stdio.h>
+
 /**
  * @file traffic_queue.c
  */
