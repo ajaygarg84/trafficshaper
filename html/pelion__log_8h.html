@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>My Project: inc/modules/pelion_log.h File Reference</title>
+<title>trafficshaper: inc/modules/pelion_log.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">trafficshaper
    </div>
   </td>
  </tr>
@@ -92,13 +92,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">pelion_log.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;device_defines.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="device__defines_8h_source.html">device_defines.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for pelion_log.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="pelion__log_8h__incl.png" border="0" usemap="#inc_2modules_2pelion__log_8h" alt=""/></div>
 <map name="inc_2modules_2pelion__log_8h" id="inc_2modules_2pelion__log_8h">
-<area shape="rect" id="node2" href="device__defines_8h_source.html" title="device_defines.h" alt="" coords="11,95,131,121"/>
+<area shape="rect" id="node2" href="device__defines_8h.html" title="device_defines.h" alt="" coords="11,95,131,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -109,10 +109,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" id="node2" href="pelion__log_8c.html" title="src/bare/modules/pelion\l_log.c" alt="" coords="5,95,165,136"/>
 <area shape="rect" id="node3" href="pelion__stdlib_8c.html" title="src/bare/modules/pelion\l_stdlib.c" alt="" coords="189,95,349,136"/>
 <area shape="rect" id="node4" href="main_8c.html" title="src/bare/apps/trafficshaper\l/main.c" alt="" coords="374,95,551,136"/>
-<area shape="rect" id="node5" href="request__generator_8c.html" title="src/bare/apps/trafficshaper\l/threads/request_generator.c" alt="" coords="575,95,763,136"/>
-<area shape="rect" id="node6" href="request__servicer_8c.html" title="src/bare/apps/trafficshaper\l/threads/request_servicer.c" alt="" coords="787,95,967,136"/>
-<area shape="rect" id="node7" href="token__generator_8c.html" title="src/bare/apps/trafficshaper\l/threads/token_generator.c" alt="" coords="991,95,1169,136"/>
-<area shape="rect" id="node8" href="device__pelion__log_8c.html" title="src/device/linux_desktop\l_i386/device_pelion_log.c" alt="" coords="1193,95,1364,136"/>
+<area shape="rect" id="node5" href="traffic__queue_8c.html" title="src/bare/apps/trafficshaper\l/traffic_queue.c" alt="" coords="575,95,753,136"/>
+<area shape="rect" id="node6" href="request__generator_8c.html" title="src/bare/apps/trafficshaper\l/threads/request_generator.c" alt="" coords="777,95,965,136"/>
+<area shape="rect" id="node7" href="request__servicer_8c.html" title="src/bare/apps/trafficshaper\l/threads/request_servicer.c" alt="" coords="989,95,1169,136"/>
+<area shape="rect" id="node8" href="token__generator_8c.html" title="src/bare/apps/trafficshaper\l/threads/token_generator.c" alt="" coords="1193,95,1370,136"/>
+<area shape="rect" id="node9" href="device__pelion__log_8c.html" title="src/device/linux_desktop\l_i386/device_pelion_log.c" alt="" coords="1395,95,1565,136"/>
 </map>
 </div>
 </div>
@@ -135,12 +136,10 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a8164e53b5771d7b6c4a44a5d1a650087"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__log_8h.html#a8164e53b5771d7b6c4a44a5d1a650087">pelion_log</a> (int level, const char *format,...)</td></tr>
 <tr class="separator:a8164e53b5771d7b6c4a44a5d1a650087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cf94a2a56ac85f431928ca5d515aa33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cf94a2a56ac85f431928ca5d515aa33"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init_log_on_device</b> ()</td></tr>
-<tr class="separator:a3cf94a2a56ac85f431928ca5d515aa33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18a7af7dda9c6762b15a25213e8316a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18a7af7dda9c6762b15a25213e8316a0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>write_log_to_device</b> (const char *const log)</td></tr>
-<tr class="separator:a18a7af7dda9c6762b15a25213e8316a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acce5a463a0d089f01cbfcc61f43937bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__log_8h.html#acce5a463a0d089f01cbfcc61f43937bf">pelion_init_log_on_device</a> ()</td></tr>
+<tr class="separator:acce5a463a0d089f01cbfcc61f43937bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c23d61a6584b789d754c2d0933ef9aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__log_8h.html#a8c23d61a6584b789d754c2d0933ef9aa">pelion_write_log_on_device</a> (const char *const log)</td></tr>
+<tr class="separator:a8c23d61a6584b789d754c2d0933ef9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af42331953dbb3fc7657eb6a37208b814"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__log_8h.html#af42331953dbb3fc7657eb6a37208b814">pelion_get_current_log_level</a> ()</td></tr>
 <tr class="separator:af42331953dbb3fc7657eb6a37208b814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -168,6 +167,23 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>current_log_level</b><
 </div><div class="memdoc">
 <p><b>(device-specific)</b></p>
 <p>This method gets the current-log-level configured in the device. </p>
+
+</div>
+</div>
+<a class="anchor" id="acce5a463a0d089f01cbfcc61f43937bf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pelion_init_log_on_device </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>(device-specific)</b></p>
+<p>This method initializes the log-backend for the device. </p>
 
 </div>
 </div>
@@ -210,6 +226,24 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>current_log_level</b><
   </dd>
 </dl>
 <p>This function receives a log-request, and does the logging according to the level-of-this-log-request, and the global-log-level set up. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8c23d61a6584b789d754c2d0933ef9aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pelion_write_log_on_device </td>
+          <td>(</td>
+          <td class="paramtype">const char *const&#160;</td>
+          <td class="paramname"><em>log</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>(device-specific)</b></p>
+<p>This method writes the log on the log-backend. </p>
 
 </div>
 </div>

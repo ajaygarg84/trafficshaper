@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>My Project: src/bare/apps/trafficshaper/main.c File Reference</title>
+<title>trafficshaper: src/bare/apps/trafficshaper/main.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">trafficshaper
    </div>
   </td>
  </tr>
@@ -95,18 +95,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="pelion__thread_8h_source.html">pelion_thread.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pelion__time_8h_source.html">pelion_time.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pelion__stdlib_8h_source.html">pelion_stdlib.h</a>&quot;</code><br />
-<code>#include &quot;app.h&quot;</code><br />
-<code>#include &quot;traffic_queue.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="pelion__system_8h_source.html">pelion_system.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="app_8h_source.html">app.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="traffic__queue_8h_source.html">traffic_queue.h</a>&quot;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c__incl.png" border="0" usemap="#src_2bare_2apps_2trafficshaper_2main_8c" alt=""/></div>
 <map name="src_2bare_2apps_2trafficshaper_2main_8c" id="src_2bare_2apps_2trafficshaper_2main_8c">
 <area shape="rect" id="node2" href="pelion__log_8h.html" title="pelion_log.h" alt="" coords="5,95,96,121"/>
-<area shape="rect" id="node5" href="pelion__thread_8h.html" title="pelion_thread.h" alt="" coords="121,95,231,121"/>
-<area shape="rect" id="node6" href="pelion__time_8h.html" title="pelion_time.h" alt="" coords="256,95,355,121"/>
-<area shape="rect" id="node7" href="pelion__stdlib_8h.html" title="pelion_stdlib.h" alt="" coords="379,95,485,121"/>
-<area shape="rect" id="node3" href="device__defines_8h_source.html" title="device_defines.h" alt="" coords="53,169,173,196"/>
+<area shape="rect" id="node5" href="pelion__thread_8h.html" title="pelion_thread.h" alt="" coords="377,95,487,121"/>
+<area shape="rect" id="node6" href="pelion__time_8h.html" title="pelion_time.h" alt="" coords="253,95,352,121"/>
+<area shape="rect" id="node7" href="pelion__stdlib_8h.html" title="pelion_stdlib.h" alt="" coords="733,95,838,121"/>
+<area shape="rect" id="node9" href="pelion__system_8h.html" title="pelion_system.h" alt="" coords="512,95,629,121"/>
+<area shape="rect" id="node10" href="app_8h.html" title="app.h" alt="" coords="654,95,709,121"/>
+<area shape="rect" id="node11" href="traffic__queue_8h.html" title="traffic_queue.h" alt="" coords="121,95,229,121"/>
+<area shape="rect" id="node3" href="device__defines_8h.html" title="device_defines.h" alt="" coords="115,169,235,196"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -118,20 +123,19 @@ Functions</h2></td></tr>
 <tr class="separator:afa271d0877db68209ecee36c8e104c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00326febbdbf26bc2c889b06d18a7913"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a00326febbdbf26bc2c889b06d18a7913">request_servicer_infinite_loop_no_busy_waiting</a> (void *arg)</td></tr>
 <tr class="separator:a00326febbdbf26bc2c889b06d18a7913"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char *argv[])</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a20a8be14eabe96e389868acec42e5013"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20a8be14eabe96e389868acec42e5013"></a>
-struct Pelion_Globals&#160;</td><td class="memItemRight" valign="bottom"><b>pelion_globals</b> = {0}</td></tr>
+struct <a class="el" href="structPelion__Globals.html">Pelion_Globals</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pelion_globals</b> = {0}</td></tr>
 <tr class="separator:a20a8be14eabe96e389868acec42e5013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c8d1362bdfc18c4c55fb46421211efb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c8d1362bdfc18c4c55fb46421211efb"></a>
-struct Traffic_Queue&#160;</td><td class="memItemRight" valign="bottom"><b>Q1</b></td></tr>
+struct <a class="el" href="structTraffic__Queue.html">Traffic_Queue</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Q1</b> = {.id = &quot;Q1&quot;}</td></tr>
 <tr class="separator:a4c8d1362bdfc18c4c55fb46421211efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a380cfd90e79e7397a5f338c59f7c3096"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a380cfd90e79e7397a5f338c59f7c3096"></a>
-struct Traffic_Queue&#160;</td><td class="memItemRight" valign="bottom"><b>Q2</b></td></tr>
+struct <a class="el" href="structTraffic__Queue.html">Traffic_Queue</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Q2</b> = {.id = &quot;Q2&quot;}</td></tr>
 <tr class="separator:a380cfd90e79e7397a5f338c59f7c3096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46599065f60c474e6dc8b3cd5e5f3738"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structArg__Type.html">Arg_Type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>arg_types_defs</b> []</td></tr>
 <tr class="separator:a46599065f60c474e6dc8b3cd5e5f3738"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +143,33 @@ struct Traffic_Queue&#160;</td><td class="memItemRight" valign="bottom"><b>Q2</b
 <tr class="separator:af23922f540f591092e0dc3d79212e4d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Entry-Point function of main-thread. </p>
+
+</div>
+</div>
 <a class="anchor" id="ab68ddbf29263f2f03a54ade486fd2adc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +276,7 @@ Go to step a). </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;r&#39;</span>, <span class="stringliteral">&quot;request-rate of T1&quot;</span>,</div><div class="line">        &amp;(pelion_globals.r_request_rate_T1)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;R&#39;</span>, <span class="stringliteral">&quot;tokens required by each request&quot;</span>,</div><div class="line">        &amp;(pelion_globals.R_tokens_per_request)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;L&#39;</span>, <span class="stringliteral">&quot;maximum unused tokens at a time (generated by T2)&quot;</span>,</div><div class="line">        &amp;(pelion_globals.L_max_unused_tokens)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;x&#39;</span>, <span class="stringliteral">&quot;token-rate of T2&quot;</span>,</div><div class="line">        &amp;(pelion_globals.x_tokens_rate_T2),</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;t&#39;</span>, <span class="stringliteral">&quot;time required for processing of each request by T3&quot;</span>,</div><div class="line">        &amp;(pelion_globals.t_time_per_request_T3)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;d&#39;</span>, <span class="stringliteral">&quot;delimiter&quot;</span>,</div><div class="line">        NULL</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment -->
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;r&#39;</span>, <span class="stringliteral">&quot;request-generation-interval (in seconds) by T1&quot;</span>,</div><div class="line">        &amp;(pelion_globals.r_request_generation_interval_T1)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;R&#39;</span>, <span class="stringliteral">&quot;tokens required by each request&quot;</span>,</div><div class="line">        &amp;(pelion_globals.R_tokens_per_request)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;L&#39;</span>, <span class="stringliteral">&quot;maximum unused tokens at a time (generated by T2)&quot;</span>,</div><div class="line">        &amp;(pelion_globals.L_max_unused_tokens)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;x&#39;</span>, <span class="stringliteral">&quot;token-generation interval (in seconds) by T2&quot;</span>,</div><div class="line">        &amp;(pelion_globals.x_token_generation_interval_T2),</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;t&#39;</span>, <span class="stringliteral">&quot;time required for processing of each request by S&quot;</span>,</div><div class="line">        &amp;(pelion_globals.t_time_per_request_S)</div><div class="line">    },</div><div class="line">    {</div><div class="line">        <span class="charliteral">&#39;d&#39;</span>, <span class="stringliteral">&quot;delimiter&quot;</span>,</div><div class="line">        NULL</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

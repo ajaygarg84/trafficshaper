@@ -1,0 +1,7 @@
+<map id="inc/apps/trafficshaper/traffic_queue.h" name="inc/apps/trafficshaper/traffic_queue.h">
+<area shape="rect" id="node2" href="$main_8c.html" title="src/bare/apps/trafficshaper\l/main.c" alt="" coords="5,95,183,136"/>
+<area shape="rect" id="node3" href="$traffic__queue_8c.html" title="src/bare/apps/trafficshaper\l/traffic_queue.c" alt="" coords="207,95,384,136"/>
+<area shape="rect" id="node4" href="$request__generator_8c.html" title="src/bare/apps/trafficshaper\l/threads/request_generator.c" alt="" coords="408,95,596,136"/>
+<area shape="rect" id="node5" href="$request__servicer_8c.html" title="src/bare/apps/trafficshaper\l/threads/request_servicer.c" alt="" coords="620,95,800,136"/>
+<area shape="rect" id="node6" href="$token__generator_8c.html" title="src/bare/apps/trafficshaper\l/threads/token_generator.c" alt="" coords="824,95,1001,136"/>
+</map>

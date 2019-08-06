@@ -1,8 +1,10 @@
 <map id="src/bare/apps/trafficshaper/threads/request_servicer.c" name="src/bare/apps/trafficshaper/threads/request_servicer.c">
 <area shape="rect" id="node2" href="$pelion__thread_8h.html" title="pelion_thread.h" alt="" coords="5,95,116,121"/>
-<area shape="rect" id="node5" href="$pelion__log_8h.html" title="pelion_log.h" alt="" coords="141,95,231,121"/>
-<area shape="rect" id="node6" href="$pelion__time_8h.html" title="pelion_time.h" alt="" coords="255,95,354,121"/>
-<area shape="rect" id="node7" href="$pelion__stdlib_8h.html" title="pelion_stdlib.h" alt="" coords="379,95,484,121"/>
-<area shape="rect" id="node9" href="$pelion__system_8h_source.html" title="pelion_system.h" alt="" coords="507,95,625,121"/>
-<area shape="rect" id="node3" href="$device__defines_8h_source.html" title="device_defines.h" alt="" coords="63,169,183,196"/>
+<area shape="rect" id="node5" href="$pelion__log_8h.html" title="pelion_log.h" alt="" coords="395,95,486,121"/>
+<area shape="rect" id="node6" href="$pelion__time_8h.html" title="pelion_time.h" alt="" coords="273,95,371,121"/>
+<area shape="rect" id="node7" href="$pelion__stdlib_8h.html" title="pelion_stdlib.h" alt="" coords="731,95,836,121"/>
+<area shape="rect" id="node9" href="$pelion__system_8h.html" title="pelion_system.h" alt="" coords="510,95,627,121"/>
+<area shape="rect" id="node10" href="$app_8h.html" title="app.h" alt="" coords="652,95,707,121"/>
+<area shape="rect" id="node11" href="$traffic__queue_8h.html" title="traffic_queue.h" alt="" coords="140,95,248,121"/>
+<area shape="rect" id="node3" href="$device__defines_8h.html" title="device_defines.h" alt="" coords="134,169,254,196"/>
 </map>
