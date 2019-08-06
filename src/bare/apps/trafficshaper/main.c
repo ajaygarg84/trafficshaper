@@ -82,6 +82,13 @@ int main(int argc, char *argv[]) {
 
 
     while(1) {
+
+        current_log_level = pelion_get_current_log_level();
+
+        pelion_log(DEBUG, "DEBUG dummy log\n");
+        pelion_log(INFO,  "INFO dummy log\n");
+        pelion_log(WARN,  "WARN dummy log\n");
+
         pelion_delay_ms(1000);
     }
 

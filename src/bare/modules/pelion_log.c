@@ -9,10 +9,10 @@
  * @file pelion_log.c
  */
 
-#define LOG_LEVEL   EVENT
-
 static char LOG_GLOBAL_BUFFER[1024];
+
 PELION_MUTEX log_mtx;
+int current_log_level = EVENT;
 
 /**
  * <b>(bare-metal)</b>
@@ -33,7 +33,7 @@ PELION_MUTEX log_mtx;
 void
 pelion_log(int level, const char *format, ...) {
 
-    if(level <= LOG_LEVEL) {
+    if(level <= current_log_level) {
 
         memset(LOG_GLOBAL_BUFFER, 0, sizeof(LOG_GLOBAL_BUFFER));
 

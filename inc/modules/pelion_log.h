@@ -7,17 +7,28 @@
  * @file pelion_log.h
  */
 
-#define EVENT   0
-#define ERROR   1
-#define WARN    2
-#define INFO    3
-#define DEBUG   4
+enum LOG_LEVEL {
 
+    ERROR = 0,
+    EVENT,
+    WARN,
+    INFO,
+    DEBUG
+};
 
 extern PELION_MUTEX log_mtx;
+extern int current_log_level;
 
-void pelion_log(int level, const char *format, ...);
-void init_log_on_device();
-void write_log_to_device(const char * const log);
+void
+pelion_log(int level, const char *format, ...);
+
+void
+init_log_on_device();
+
+void
+write_log_to_device(const char * const log);
+
+int
+pelion_get_current_log_level();
 
 #endif
