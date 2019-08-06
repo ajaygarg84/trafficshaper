@@ -95,19 +95,5 @@ void parse_cmd_line_args(int argc, char *argv[]) {
 }
 
 
-void
-pelion_convert_numeric_to_float(long num, unsigned short base,
-                                char *dest, int max_dest_size) {
-
-    char *prefix = "";
-    memset((void*) dest, 0, max_dest_size);
-
-    if(num < 0) {
-        num = num * -1;
-        prefix = "-";
-    }
-
-    pelion_sprintf(dest, "%s%u.%u", prefix, num / base, num % base);
-}
 
 

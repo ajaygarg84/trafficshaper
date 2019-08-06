@@ -22,9 +22,5 @@ extern struct Pelion_Globals pelion_globals;
 void
 parse_cmd_line_args(int argc, char *argv[]);
 
-void
-pelion_convert_numeric_to_float(long num, unsigned short base,
-                                char *dest, int max_dest_size);
-
 
 #endif
