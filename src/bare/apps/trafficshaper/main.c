@@ -66,8 +66,8 @@ int main(int argc, char *argv[]) {
     /*
      * Start the threads.
      */
-    start_thread(request_generator_infinite_loop, NULL);
-    start_thread(token_generator_infinite_loop, NULL);
+    pelion_start_thread(request_generator_infinite_loop, NULL);
+    pelion_start_thread(token_generator_infinite_loop, NULL);
 
     while(1) {
         pelion_delay_ms(1000);
