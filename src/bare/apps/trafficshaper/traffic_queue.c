@@ -6,8 +6,44 @@
 #include "pelion_log.h"
 #include "pelion_time.h"
 
+static void
+enqueue_node(struct Traffic_Queue *queue,
+             struct Traffic_Queue_Node *node,
+             unsigned char do_locking) {
+
+    if(node == NULL) {
+        return;
+    }
+
+    /*
+     * Adjust the head and tail pointers, creating new when necessary.
+     *
+     * Note that since the queues will be used in a typical
+     * producer-consumer paradigm in a multi-threaded environment,
+     * so we need to protect the resource while modification.
+     */
+    if(do_locking == 1) {
+        pelion_acquire_mutex(&(queue->mtx));
+    }
+
+    if(queue->head != NULL) {
+        queue->head->next = node;
+    }
+    queue->head = node;
+
+    if(queue->tail == NULL) {
+        queue->tail = node;
+    }
+
+
+    if(do_locking == 1) {
+        pelion_release_mutex(&(queue->mtx));
+    }
+
+}
+
 void
-add_new_node(struct Traffic_Queue *queue, unsigned int tokens) {
+enqueue_node_new(struct Traffic_Queue *queue, unsigned int tokens) {
 
     struct Traffic_Queue_Node *new_node =
         (struct Traffic_Queue_Node *) pelion_malloc(
@@ -24,26 +60,21 @@ add_new_node(struct Traffic_Queue *queue, unsigned int tokens) {
     new_node->tokens = tokens;
     new_node->time_us = get_current_timestamp_us();
 
+    queue->requests_enqueued = queue->requests_enqueued + 1;
+    new_node->request_number = queue->requests_enqueued;
 
     /*
-     * Adjust the head and tail pointers, creating new when necessary.
-     *
-     * Note that since the queues will be used in a typical
-     * producer-consumer paradigm in a multi-threaded environment,
-     * so we need to protect the resource while modification.
+     * Finally, add the node to queue.
      */
-    pelion_acquire_mutex(&(queue->mtx));
+    enqueue_node(queue, new_node, 1);
+}
 
-    if(queue->head != NULL) {
-        queue->head->next = new_node;
-    }
-    queue->head = new_node;
 
-    if(queue->tail == NULL) {
-        queue->tail = new_node;
-    }
+void
+enqueue_node_existing(struct Traffic_Queue *queue,
+                      struct Traffic_Queue_Node *node) {
 
-    pelion_release_mutex(&(queue->mtx));
+    enqueue_node(queue, node, 1);
 }
 
 
@@ -62,6 +93,7 @@ get_oldest_node(struct Traffic_Queue *queue, unsigned char do_locking) {
     result = queue->tail;
 
     if(queue->tail != NULL) {
+
         queue->tail = queue->tail->next;
     }
 

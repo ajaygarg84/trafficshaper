@@ -22,9 +22,18 @@ void *token_generator_infinite_loop(void *arg) {
 
             if(result != NULL) {
 
-                remaining_tokens = remaining_tokens - result->tokens;
-                Q1.requests_dequeued++;
+                /*
+                 * We have a node ready to be moved from Q1 to Q2.
+                 */
 
+                /*
+                 * Update remaining tokens.
+                 */
+                remaining_tokens = remaining_tokens - result->tokens;
+
+                /*
+                 * Log removal from Q1.
+                 */
                 {
                     char str_time_in_us_in_Q1[20] = {0};
 
@@ -39,11 +48,19 @@ void *token_generator_infinite_loop(void *arg) {
 
                     pelion_log(EVENT, "r%u leaves Q1, time in Q1 = %sms, "
                                       "remaining_token = %u\n",
-                                      Q1.requests_dequeued,
+                                      result->request_number,
                                       str_time_in_us_in_Q1,
                                       remaining_tokens);
 
                 }
+
+                /*
+                 * Insert the node into Q2, and log.
+                 */
+                enqueue_node_existing(&Q2, result);
+
+                pelion_log(EVENT, "r%u enters Q2\n",
+                                  result->request_number);
 
             } else {
                 break;

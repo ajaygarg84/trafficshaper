@@ -6,6 +6,8 @@
 struct Traffic_Queue_Node {
 
     unsigned int tokens;
+
+    unsigned int request_number;
     unsigned long time_us;
 
     struct Traffic_Queue_Node *next;
@@ -19,8 +21,7 @@ struct Traffic_Queue {
 
     PELION_MUTEX mtx;
 
-    unsigned int requests_arrived;
-    unsigned int requests_dequeued;
+    unsigned int requests_enqueued;
 };
 
 
@@ -28,7 +29,11 @@ extern struct Traffic_Queue Q1;
 extern struct Traffic_Queue Q2;
 
 void
-add_new_node(struct Traffic_Queue *queue, unsigned int tokens);
+enqueue_node_new(struct Traffic_Queue *queue, unsigned int tokens);
+
+void
+enqueue_node_existing(struct Traffic_Queue *queue,
+                      struct Traffic_Queue_Node *node);
 
 struct Traffic_Queue_Node*
 get_oldest_node(struct Traffic_Queue *queue, unsigned char do_locking);
