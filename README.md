@@ -65,11 +65,11 @@ The code has been layered out broadly into two components:
    
 * Device-Specific C code
    * This code is device-specific, and needs to be potentially ported for a new device.
-   * The stubs for all such code is present in __src/device/stub__
-   * When a new device comes in (let's say proprietary_xyz_soc on a 32-bit machine), following needs to be done:    
+   * The stubs for all such code are present in __src/device/stub__
+   * When a new device comes in (let's say __proprietary_xyz_soc__), following needs to be done:    
    
        * __*cp -r src/device/stub src/device/proprietary_xyz_soc*__
-       * Thereafter, all files in __src/device/proprietary_xyz_soc__ need to be coded.
+       * Thereafter, all files in __src/device/proprietary_xyz_soc__ need to be ported.
        
    * Following are some of the modules which are candidates for residing in device-specific section:
        * __socket__, as a device may have any permutation of one or more of Wifi/GPRS/Ethernet for IP-connectivity.
@@ -82,7 +82,12 @@ The code has been layered out broadly into two components:
  
 The code-files are documented in consistency with doxygen.     
          
-To start navigating the html-version documentation, please start by opening the file __*~/trafficshaper/html/files.html*__ in a local browser.
+To start navigating the html-version documentation, please start by opening the file __*~/trafficshaper/html/files.html*__ in a local browser.     
+     
+To regenerate/update the doxygen documentation, following commands should be run:
+
+* __*cd ~/trafficshaper*__
+* __*doxygen doxygen.cfg*__
 
 
 
