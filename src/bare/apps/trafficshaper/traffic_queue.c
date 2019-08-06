@@ -1,10 +1,12 @@
 #include "device_defines.h"
 
-#include "traffic_queue.h"
-#include "pelion_mutex.h"
+#include "pelion_thread.h"
 #include "pelion_system.h"
 #include "pelion_log.h"
 #include "pelion_time.h"
+
+#include "traffic_queue.h"
+
 
 static void
 enqueue_node(struct Traffic_Queue *queue,

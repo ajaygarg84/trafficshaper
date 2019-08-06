@@ -1,5 +1,4 @@
 #include "pelion_log.h"
-#include "pelion_mutex.h"
 #include "pelion_thread.h"
 #include "pelion_time.h"
 #include "pelion_stdlib.h"

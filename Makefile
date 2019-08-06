@@ -19,7 +19,6 @@ FILES = 	src/bare/modules/pelion_stdlib.c			\
 		src/device/$(DEVICE)/device_pelion_system.c		\
 		src/device/$(DEVICE)/device_pelion_log.c		\
 		src/device/$(DEVICE)/device_pelion_thread.c		\
-		src/device/$(DEVICE)/device_pelion_mutex.c		\
 		src/device/$(DEVICE)/device_pelion_time.c		\
 									\
 
