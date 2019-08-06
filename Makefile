@@ -24,5 +24,5 @@ FILES = 	src/bare/modules/pelion_stdlib.c			\
 									\
 
 build:
-	gcc $(INCLUDES) $(FILES) -o trafficshaper -lpthread
+	@gcc $(INCLUDES) $(FILES) -o trafficshaper -lpthread
 
