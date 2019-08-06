@@ -2,7 +2,7 @@
 
 ## One Time Operation
 
-* __*cd ~*__
+* __*cd \~*__
 * __*git clone https://github.com/ajaygarg84/trafficshaper.git*__
 * __*cd trafficshaper*__
 * __*sh create_ctags.sh*__
@@ -41,7 +41,8 @@ The usage of the tool is user-friendly.
 * If WARN is chosen, all of WARN, EVENT, ERROR logs will be seen. 
 * If INFO is chosen, all of INFO, WARN, EVENT, ERROR logs will be seen. 
 * If DEBUG is chosen, all of DEBUG, INFO, WARN, EVENT, ERROR logs will be seen. 
-    
+
+When WARN/INFO/DEBUG level is selected, dummy logs for these levels are shown by tailing __logs__ file:
     
     
 ### Capturing logs for a particular request number
