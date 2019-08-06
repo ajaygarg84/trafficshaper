@@ -27,8 +27,9 @@ int current_log_level = EVENT;
  * Variable-argument list.
  *
  *
- * This function receives a logs-request, and does the logging
- * according to the level-of-this-log-request, and the global-loglevel set up.
+ * This function receives a log-request, and does the logging
+ * according to the level-of-this-log-request, and the global-log-level
+ * set up.
  */
 void
 pelion_log(int level, const char *format, ...) {

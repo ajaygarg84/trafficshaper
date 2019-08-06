@@ -2,6 +2,10 @@
 
 #include <stdio.h>
 
+/**
+ * @file device_pelion_log.c
+ */
+
 void init_log_on_device() {
 }
 
