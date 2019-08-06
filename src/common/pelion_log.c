@@ -402,7 +402,17 @@ convert:
 static char LOG_GLOBAL_BUFFER[1024];
 PELION_MUTEX log_mtx;
 
-void pelion_log(int level, const char *format, ...) {
+void
+pelion_sprintf(char *out, const char *format, ...) {
+
+    va_list argptr;
+    va_start(argptr, format);
+    pelion_varargs(out, format, argptr);
+    va_end(argptr);
+}
+
+void
+pelion_log(int level, const char *format, ...) {
 
     if(level <= LOG_LEVEL) {
 

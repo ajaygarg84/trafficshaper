@@ -24,13 +24,21 @@ void *token_generator_infinite_loop(void *arg) {
                 Q1.requests_dequeued++;
 
                 {
+                    char str_time_in_us_in_Q1[20] = {0};
+
                     unsigned long time_in_us_in_Q1 =
                         get_current_time_us() - result->time_us;
 
-                    pelion_log(EVENT, "r%u leaves Q1, time in Q1 = %ums, "
+                    pelion_convert_numeric_to_float(
+                            time_in_us_in_Q1,
+                            1000,
+                            str_time_in_us_in_Q1,
+                            sizeof(str_time_in_us_in_Q1));
+
+                    pelion_log(EVENT, "r%u leaves Q1, time in Q1 = %sms, "
                                       "remaining_token = %u\n",
                                       Q1.requests_dequeued,
-                                      time_in_us_in_Q1 / 1000,
+                                      str_time_in_us_in_Q1,
                                       remaining_tokens);
 
                 }

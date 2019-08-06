@@ -9,6 +9,7 @@ struct Arg_Type {
 };
 
 struct Pelion_Globals {
+
     unsigned int r_request_rate_T1;
     unsigned int R_tokens_per_request;
     unsigned int L_max_unused_tokens;
@@ -18,8 +19,12 @@ struct Pelion_Globals {
 
 extern struct Pelion_Globals pelion_globals;
 
-void parse_cmd_line_args();
+void
+parse_cmd_line_args(int argc, char *argv[]);
 
-#define INVALID_TOKEN  0
+void
+pelion_convert_numeric_to_float(long num, unsigned short base,
+                                char *dest, int max_dest_size);
+
 
 #endif
