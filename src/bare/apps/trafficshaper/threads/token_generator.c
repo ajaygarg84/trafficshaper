@@ -42,7 +42,9 @@ void *token_generator_infinite_loop(void *arg) {
     {
         pelion_delay_us(pelion_globals.x_tokens_rate_T2 * 1000000U);
 
-        remaining_tokens++;
+        if(remaining_tokens < pelion_globals.L_max_unused_tokens) {
+            remaining_tokens++;
+        }
 
         while(1) {
             struct Traffic_Queue_Node *result =
@@ -59,28 +61,6 @@ void *token_generator_infinite_loop(void *arg) {
                  */
                 remaining_tokens = remaining_tokens - result->tokens;
 
-                /*
-                 * Log removal from Q1.
-                 */
-                {
-                    char str_time_in_us_in_Q1[20] = {0};
-
-                    unsigned long time_in_us_in_Q1 =
-                        pelion_get_current_timestamp_us() - result->time_us;
-
-                    pelion_convert_numeric_to_float(
-                            time_in_us_in_Q1,
-                            1000,
-                            str_time_in_us_in_Q1,
-                            sizeof(str_time_in_us_in_Q1));
-
-                    pelion_log(EVENT, "r%u leaves Q1, time in Q1 = %sms, "
-                                      "remaining_token = %u\n",
-                                      result->request_number,
-                                      str_time_in_us_in_Q1,
-                                      remaining_tokens);
-
-                }
 
                 /*
                  * Insert the node into Q2.
@@ -92,13 +72,6 @@ void *token_generator_infinite_loop(void *arg) {
                  * ready for processing.
                  */
                 pelion_wake_one_thread_on_condition_variable(&(Q2.cond));
-
-
-                /*
-                 * Log the entry-into-Q2 event.
-                 */
-                pelion_log(EVENT, "r%u enters Q2\n",
-                                  result->request_number);
 
             } else {
                 break;

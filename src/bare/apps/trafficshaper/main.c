@@ -2,6 +2,7 @@
 #include "pelion_thread.h"
 #include "pelion_time.h"
 #include "pelion_stdlib.h"
+#include "pelion_system.h"
 
 #include "app.h"
 #include "traffic_queue.h"
@@ -11,8 +12,8 @@
  */
 struct Pelion_Globals pelion_globals = {0};
 
-struct Traffic_Queue Q1;
-struct Traffic_Queue Q2;
+struct Traffic_Queue Q1 = {.id = "Q1"};
+struct Traffic_Queue Q2 = {.id = "Q2"};
 
 void* request_generator_infinite_loop(void *arg);
 void* token_generator_infinite_loop(void *arg);
@@ -71,6 +72,18 @@ int main(int argc, char *argv[]) {
      * Fetch the configurable parameters passed via command line.
      */
     parse_cmd_line_args(argc, argv);
+
+
+    /*
+     * Error out if R_tokens_per_request is greater than
+     * L_max_unused_tokens.
+     */
+    if(pelion_globals.R_tokens_per_request >
+       pelion_globals.L_max_unused_tokens) {
+
+        pelion_log(ERROR, "R cannot be larger than L, exiting ..\n");
+        pelion_exit();
+    }
 
 
     /*

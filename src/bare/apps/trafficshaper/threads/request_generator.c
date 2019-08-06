@@ -22,7 +22,6 @@
  *
  * c)\n
  * Go to step a).
- *
  */
 void *request_generator_infinite_loop(void *arg) {
 
@@ -37,22 +36,10 @@ void *request_generator_infinite_loop(void *arg) {
                           requests_arrived,
                           pelion_globals.R_tokens_per_request);
 
+        enqueue_node_new(&Q1,
+                         requests_arrived,
+                         pelion_globals.R_tokens_per_request);
 
-        /*
-         * If request-tokens are in permissible limits, add the request
-         * into Q1.
-         */
-        if(pelion_globals.R_tokens_per_request <
-           pelion_globals.L_max_unused_tokens) {
-
-            enqueue_node_new(&Q1, pelion_globals.R_tokens_per_request);
-            pelion_log(EVENT, "r%u enters Q1\n", requests_arrived);
-
-        } else {
-
-            pelion_log(WARN, "Not enqueuing r%u in Q1, as tokens "
-                             "exceeded\n", requests_arrived);
-        }
     }
 }
 
