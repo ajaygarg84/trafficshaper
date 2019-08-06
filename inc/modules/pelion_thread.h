@@ -3,6 +3,10 @@
 
 #include "device_defines.h"
 
+/**
+ * @file pelion_thread.h
+ */
+
 typedef void* (*THREAD_FUNC_PTR)(void *arg);
 
 void
