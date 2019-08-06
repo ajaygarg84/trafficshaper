@@ -5,6 +5,25 @@
 #include "app.h"
 #include "traffic_queue.h"
 
+/**
+ * @file request_generator.c
+ */
+
+/**
+ * This is the entry-point function for thread T1.\n
+ * T1 does the following things :
+ *
+ * a)\n
+ * Sleep for <b>r</b> seconds (where <b>r</b> r is given by
+ * command-line).
+ *
+ * b)\n
+ * Generate a request, and enqueue it into Q1.
+ *
+ * c)\n
+ * Go to step a).
+ *
+ */
 void *request_generator_infinite_loop(void *arg) {
 
     unsigned int requests_arrived = 0;

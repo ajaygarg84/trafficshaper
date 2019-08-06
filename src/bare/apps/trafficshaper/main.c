@@ -6,6 +6,9 @@
 #include "app.h"
 #include "traffic_queue.h"
 
+/**
+ * @file main.c
+ */
 struct Pelion_Globals pelion_globals = {0};
 
 struct Traffic_Queue Q1;

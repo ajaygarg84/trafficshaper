@@ -6,6 +6,36 @@
 #include "app.h"
 #include "traffic_queue.h"
 
+/**
+ * @file token_generator.c
+ */
+
+/**
+ * This is the entry-point function for thread T2.\n
+ * T2 does the following things :
+ *
+ * a)\n
+ * Sleep for <b>x</b> seconds (where <b>x</b> r is given by
+ * command-line).
+ *
+ * b)\n
+ * Generate a token.
+ *
+ * c)\n
+ * Checks to see if there are sufficient tokens to process the oldest
+ * request present in Q1. If yes,
+ *
+ * * The oldest request is dequeued from Q1.
+ * * This request is then enqueued into Q2.
+ *
+ * Step c) is repeated until there are sufficient tokens to process
+ * requests of Q1.
+ *
+ * d)\n
+ * Go to step a).
+ *
+ */
+
 void *token_generator_infinite_loop(void *arg) {
 
     unsigned long remaining_tokens = 0;

@@ -6,10 +6,10 @@
 
 
 void
-pelion_varargs(char *out, const char *pcString, va_list vaArgP);
+pelion_varargs(char *dest, const char *fmt, va_list var_args_params);
 
 void
-pelion_sprintf(char *out, const char *format, ...);
+pelion_sprintf(char *dest, const char *format, ...);
 
 void
 pelion_convert_numeric_to_float(long num, unsigned short base,

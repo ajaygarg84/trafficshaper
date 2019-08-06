@@ -8,21 +8,42 @@
 
 static const char * const g_pcHex = "0123456789abcdef";
 
+/**
+  * @file pelion_stdlib.c
+  */
+
+
+/**
+  * <b>(bare-metal)</b>
+  *
+  * @param dest
+  * Destination-buffer where the #var_args_params will be "sprinted".
+  *
+  * @param fmt
+  * Format-Specifier string.
+  *
+  * @param var_args_params
+  * List of variable-arguments.
+  *
+  *
+  * This function processes the variable-arguments, and writes them suitably
+  * into the destination-buffer.
+  */
 void
-pelion_varargs(char *out, const char *pcString, va_list vaArgP)
-{
+pelion_varargs(char *dest, const char *fmt, va_list var_args_params) {
+
     unsigned long ulIdx, ulValue, ulPos, ulCount, ulBase, ulNeg, temp;
     char *pcStr, pcBuf[16], cFill;
 
     /*
      * Loop while there are more characters in the string.
      */
-    while(*pcString)
+    while(*fmt)
     {
         /*
          * Find the first non-% character, or the end of the string.
          */
-        for(ulIdx = 0; (pcString[ulIdx] != '%') && (pcString[ulIdx] != '\0');
+        for(ulIdx = 0; (fmt[ulIdx] != '%') && (fmt[ulIdx] != '\0');
             ulIdx++) {
         }
 
@@ -30,23 +51,23 @@ pelion_varargs(char *out, const char *pcString, va_list vaArgP)
          * Write this portion of the string.
          */
         for(temp = 0; temp < ulIdx; temp++) {
-            *out = pcString[temp];
-            out++;
+            *dest = fmt[temp];
+            dest++;
         }
 
         /*
          * Skip the portion of the string that was written.
          */
-        pcString += ulIdx;
+        fmt += ulIdx;
 
         /*
          * See if the next character is a %.
          */
-        if(*pcString == '%') {
+        if(*fmt == '%') {
             /*
              * Skip the %.
              */
-            pcString++;
+            fmt++;
 
             /*
              * Set the digit count to zero, and the fill character to space
@@ -66,7 +87,7 @@ again:
             /*
              * Determine how to handle the next character.
              */
-            switch(*pcString++) {
+            switch(*fmt++) {
                 /*
                  * Handle the digit characters.
                  */
@@ -85,7 +106,7 @@ again:
                      * If this is a zero, and it is the first digit, then the
                      * fill character is a zero instead of a space.
                      */
-                    if((pcString[-1] == '0') && (ulCount == 0)) {
+                    if((fmt[-1] == '0') && (ulCount == 0)) {
                         cFill = '0';
                     }
 
@@ -93,7 +114,7 @@ again:
                      * Update the digit count.
                      */
                     ulCount *= 10;
-                    ulCount += pcString[-1] - '0';
+                    ulCount += fmt[-1] - '0';
 
                     /*
                      * Get the next character.
@@ -108,13 +129,13 @@ again:
                     /*
                      * Get the value from the varargs.
                      */
-                    ulValue = va_arg(vaArgP, unsigned long);
+                    ulValue = va_arg(var_args_params, unsigned long);
 
                     /*
                      * Print out the character.
                      */
-                    *out = (char)ulValue;
-                    out++;
+                    *dest = (char)ulValue;
+                    dest++;
 
                     /*
                      * This command has been handled.
@@ -130,7 +151,7 @@ again:
                     /*
                      * Get the value from the varargs.
                      */
-                    ulValue = va_arg(vaArgP, unsigned long);
+                    ulValue = va_arg(var_args_params, unsigned long);
 
                     /*
                      * Reset the buffer position.
@@ -181,7 +202,7 @@ again:
                     /*
                      * Get the string pointer from the varargs.
                      */
-                    pcStr = va_arg(vaArgP, char *);
+                    pcStr = va_arg(var_args_params, char *);
 
                     /*
                      * Determine the length of the string.
@@ -195,8 +216,8 @@ again:
                      */
                     for(temp = 0; temp < ulIdx; temp++)
                     {
-                        *out = pcStr[temp];
-                        out++;
+                        *dest = pcStr[temp];
+                        dest++;
                     }
 
                     /*
@@ -207,8 +228,8 @@ again:
                         ulCount -= ulIdx;
                         while(ulCount--)
                         {
-                            *out = ' ';
-                            out++;
+                            *dest = ' ';
+                            dest++;
                         }
                     }
 
@@ -225,7 +246,7 @@ again:
                     /*
                      * Get the value from the varargs.
                      */
-                    ulValue = va_arg(vaArgP, unsigned long);
+                    ulValue = va_arg(var_args_params, unsigned long);
 
                     /*
                      * Reset the buffer position.
@@ -261,7 +282,7 @@ again:
                     /*
                      * Get the value from the varargs.
                      */
-                    ulValue = va_arg(vaArgP, unsigned long);
+                    ulValue = va_arg(var_args_params, unsigned long);
 
                     /*
                      * Reset the buffer position.
@@ -348,8 +369,8 @@ convert:
                      * Write the string.
                      */
                     for(temp = 0; temp < ulPos; temp++) {
-                        *out = pcBuf[temp];
-                        out++;
+                        *dest = pcBuf[temp];
+                        dest++;
                     }
 
                     /*
@@ -365,8 +386,8 @@ convert:
                     /*
                      * Simply write a single %.
                      */
-                    *out = '%';
-                    out++;
+                    *dest = '%';
+                    dest++;
 
                     /*
                      * This command has been handled.
@@ -393,16 +414,64 @@ convert:
 }
 
 
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param dest
+ * Destination-Buffer.
+ *
+ * @param format
+ * Format-Specifier string.
+ *
+ * @param ...
+ * Arguments for format-specifier variables.
+ *
+ *
+ * This is a bare-metal version of linux's "sprintf" function.
+ */
 void
-pelion_sprintf(char *out, const char *format, ...) {
+pelion_sprintf(char *dest, const char *format, ...) {
 
     va_list argptr;
     va_start(argptr, format);
-    pelion_varargs(out, format, argptr);
+    pelion_varargs(dest, format, argptr);
     va_end(argptr);
 }
 
 
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param num
+ * Number which needs to be converted to float.
+ *
+ * @param base
+ * <b>num</b> will be divided by this <b>base</b>, and resultant float will be
+ * generated.
+ *
+ * @param dest
+ * Destination-buffer, into which the float-result will be written as
+ * string.
+ *
+ * @param max_dest_size
+ * maximum buffer-size for <b>dest</b>.
+ *
+ * There is no universal/easy solution for a bare-metal version for supporting
+ * format-specifier for float. So, this utility-function partially
+ * fulfills the requirement, as per examples below :
+ *
+ *  num = 1234, base = 1\n
+ *  dest will be written with 1234.0
+ *
+ *  num = 1234, base = 10\n
+ *  dest will be written with 123.4
+ *
+ *  num = 1234, base = 100\n
+ *  dest will be written with 12.34
+
+ *  num = 1234, base = 1000\n
+ *  dest will be written with 1.234
+ */
 void
 pelion_convert_numeric_to_float(long num, unsigned short base,
                                 char *dest, int max_dest_size) {
@@ -419,8 +488,35 @@ pelion_convert_numeric_to_float(long num, unsigned short base,
 }
 
 
+/**
+ * Pointer to
+ *
+ *      struct Arg_Type arg_types_defs[]
+ *
+ * in src/bare/apps/trafficshaper/main.c
+ */
 extern struct Arg_Type *arg_types;
 
+
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param argc
+ * Number of command-line arguments.
+ *
+ * @param argv
+ * Command-line arguments.
+ *
+ * This method parses the command-line arguments, and fills in the
+ * variables holding the values during runtime.
+ *
+ * The mapping for command-line switches and the corresponding
+ * variables is given as per definition of
+ *
+ *      struct Arg_Type arg_types_defs[]
+ *
+ * in src/bare/apps/trafficshaper/main.c
+ */
 void
 parse_cmd_line_args(int argc, char *argv[]) {
 

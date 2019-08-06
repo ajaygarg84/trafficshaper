@@ -5,11 +5,31 @@
 #include <stdarg.h>
 #include <string.h>
 
+/**
+ * @file pelion_log.c
+ */
+
 #define LOG_LEVEL   EVENT
 
 static char LOG_GLOBAL_BUFFER[1024];
 PELION_MUTEX log_mtx;
 
+/**
+ * <b>(bare-metal)</b>
+ *
+ * @param level
+ * Log-level intended for this log.
+ *
+ * @param format
+ * Format-specifier string for variable-arguments.
+ *
+ * @param ...
+ * Variable-argument list.
+ *
+ *
+ * This function receives a logs-request, and does the logging
+ * according to the level-of-this-log-request, and the global-loglevel set up.
+ */
 void
 pelion_log(int level, const char *format, ...) {
 
