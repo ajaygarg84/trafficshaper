@@ -23,10 +23,10 @@ void
 pelion_log(int level, const char *format, ...);
 
 void
-init_log_on_device();
+pelion_init_log_on_device();
 
 void
-write_log_to_device(const char * const log);
+pelion_write_log_on_device(const char * const log);
 
 int
 pelion_get_current_log_level();

@@ -1,19 +1,41 @@
 #include "pelion_log.h"
 
 #include <stdio.h>
+#include <string.h>
 
 /**
  * @file device_pelion_log.c
  */
 
+
+static FILE *fp = NULL;
+
+/**
+ * <b>(device-specific)</b>
+ *
+ * This method initializes the log-backend for the device.
+ */
 void
-init_log_on_device() {
+pelion_init_log_on_device() {
+
+    /*
+     * For linux, we would write logs on a log-file.
+     * At startup, re-initialize the log-file.
+     */
+    fp = fopen("logs", "w");
 }
 
 
+/**
+ * <b>(device-specific)</b>
+ *
+ * This method writes the log on the log-backend.
+ */
 void
-write_log_to_device(const char * const log) {
-    printf("%s", log);
+pelion_write_log_on_device(const char * const log) {
+
+    fwrite(log, 1, strlen(log), fp);
+    fflush(fp);
 }
 
 

@@ -45,7 +45,7 @@ pelion_log(int level, const char *format, ...) {
         pelion_varargs(LOG_GLOBAL_BUFFER, format, argptr);
         va_end(argptr);
 
-        write_log_to_device(LOG_GLOBAL_BUFFER);
+        pelion_write_log_on_device(LOG_GLOBAL_BUFFER);
 
         pelion_release_mutex(&log_mtx);
     }

@@ -64,7 +64,7 @@ int main(int argc, char *argv[]) {
     /*
      * Initialize the backend logger.
      */
-    init_log_on_device();
+    pelion_init_log_on_device();
 
 
     /*
