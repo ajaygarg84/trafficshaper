@@ -7,10 +7,10 @@ In general, this project *should* work on any linux on any processor.
 
 ## One Time Operation
 
-* __*cd \~*__
-* __*git clone https://github.com/ajaygarg84/trafficshaper.git*__
-* __*cd trafficshaper*__
-* __*sh create_ctags.sh*__
+      cd ~       
+      git clone https://github.com/ajaygarg84/trafficshaper.git      
+      cd trafficshaper     
+      sh create_ctags.sh    
 
 ## Steps to run the application
 
@@ -18,15 +18,15 @@ In general, this project *should* work on any linux on any processor.
 
 Open a terminal, and run the following commands to see running logs:
 
-* __*cd ~/trafficshaper*__
-* __*touch logs*__
-* __*tail -f logs*__
+      cd ~/trafficshaper      
+      touch logs      
+      tail -f logs      
 
 Open a second terminal, and run the following commands to start the application:
 
-* __*cd ~/trafficshaper*__
-* __*make*__
-* __*./trafficshaper -r 2 -L 50 -t 5 -x 1 -R 5*__
+      cd ~/trafficshaper     
+      make     
+      ./trafficshaper -r 2 -L 50 -t 5 -x 1 -R 5      
 
 Now, the logs should start appearing in the first terminal.    
 __Since we are doing file-based logging, so only one instance of ./trafficshaper can be running at a time.__
@@ -38,8 +38,8 @@ __Since we are doing file-based logging, so only one instance of ./trafficshaper
 The log-level can be changed at runtime, which will be picked up on the fly by the application.      
 To change the log-level, open a third terminal, and run the following commands:
 
-* __*cd ~/trafficshaper*__
-* __*python tools/linux_desktop_i386/change_log_level.py*__
+      cd ~/trafficshaper     
+      python tools/linux_desktop_i386/change_log_level.py     
 
 The usage of the tool is user-friendly.
 
@@ -56,7 +56,7 @@ When WARN/INFO/DEBUG level is selected, dummy logs for these levels are shown by
 The __logs__ file collects all the logs cumulatively.      
 To filter out logs for a particular request (let's say request number 3), we can use the following tool:
 
-* __*sh tools/linux_desktop_i386/get_logs_by_request_number.sh 3*__
+      sh tools/linux_desktop_i386/get_logs_by_request_number.sh 3      
 
 
 # Code 
@@ -92,8 +92,8 @@ To start navigating the html-version documentation, please start by opening the 
      
 To regenerate/update the doxygen documentation, following commands should be run:
 
-* __*cd ~/trafficshaper*__
-* __*doxygen doxygen.cfg*__
+__*cd ~/trafficshaper*__     
+__*doxygen doxygen.cfg*__     
 
 
 
