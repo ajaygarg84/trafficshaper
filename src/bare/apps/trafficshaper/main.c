@@ -1,9 +1,10 @@
-#include "pelion_queue.h"
 #include "pelion_cmd_args.h"
 #include "pelion_log.h"
 #include "pelion_mutex.h"
 #include "pelion_thread.h"
 #include "pelion_time.h"
+
+#include "traffic_queue.h"
 
 struct Pelion_Queue Q1;
 struct Pelion_Queue Q2;

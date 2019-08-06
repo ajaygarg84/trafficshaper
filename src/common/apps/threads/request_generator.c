@@ -1,8 +1,9 @@
 #include "pelion_thread.h"
 #include "pelion_log.h"
-#include "pelion_queue.h"
 #include "pelion_cmd_args.h"
 #include "pelion_time.h"
+
+#include "traffic_queue.h"
 
 void *request_generator_infinite_loop(void *arg) {
 

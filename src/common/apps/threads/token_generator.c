@@ -1,9 +1,10 @@
 #include "pelion_thread.h"
 #include "pelion_log.h"
-#include "pelion_queue.h"
 #include "pelion_cmd_args.h"
 #include "pelion_time.h"
 #include "pelion_stdlib.h"
+
+#include "traffic_queue.h"
 
 void *token_generator_infinite_loop(void *arg) {
 

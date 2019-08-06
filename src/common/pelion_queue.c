@@ -1,6 +1,6 @@
 #include "device_defines.h"
 
-#include "pelion_queue.h"
+#include "traffic_queue.h"
 #include "pelion_mutex.h"
 #include "pelion_system.h"
 #include "pelion_log.h"
