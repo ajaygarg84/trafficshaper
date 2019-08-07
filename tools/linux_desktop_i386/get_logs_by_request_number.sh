@@ -1,5 +1,5 @@
 echo
 echo
-cat logs | grep "r${1} "
+cat logs | grep -a "r${1} "
 echo
 echo
