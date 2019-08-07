@@ -29,7 +29,8 @@ Open a second terminal, and run the following commands to start the application:
       ./trafficshaper -r 2 -L 50 -t 5 -x 1 -R 5      
 
 Now, the logs should start appearing in the first terminal.    
-__Since we are doing file-based logging, so only one instance of ./trafficshaper can be running at a time.__
+      
+*Since we are doing file-based logging at a fixed location (~/trafficshaper/logs), so __only one instance of ./trafficshaper can be running at a time__ (otherwise logs from multiple instances will get jumbled up).*
 
    
    
