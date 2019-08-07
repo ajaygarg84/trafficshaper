@@ -14,7 +14,7 @@
  * T1 does the following things :
  *
  * a)\n
- * Sleep for <b>r</b> seconds (where <b>r</b> r is given by
+ * Sleep for <b>r</b> seconds (where <b>r</b> is given by
  * command-line).
  *
  * b)\n

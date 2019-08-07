@@ -28,7 +28,8 @@
  *   Q2.
  *
  * Note that no busy-waiting is involved, by using a
- * mutex-and-condition-variable paradigm for queue Q2 and threads T2 and S.
+ * mutex-and-condition-variable paradigm for queue Q2 and
+ * threads T2 (token_generator.c) and S.
  */
 void *request_servicer_infinite_loop_no_busy_waiting(void *arg) {
 

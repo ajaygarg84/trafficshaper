@@ -17,7 +17,7 @@
  * T2 does the following things :
  *
  * a)\n
- * Sleep for <b>x</b> seconds (where <b>x</b> r is given by
+ * Sleep for <b>x</b> seconds (where <b>x</b> is given by
  * command-line).
  *
  * b)\n
