@@ -7,4 +7,5 @@
 <area shape="rect" id="node7" href="$request__servicer_8c.html" title="src/bare/apps/trafficshaper\l/threads/request_servicer.c" alt="" coords="989,95,1169,136"/>
 <area shape="rect" id="node8" href="$token__generator_8c.html" title="src/bare/apps/trafficshaper\l/threads/token_generator.c" alt="" coords="1193,95,1370,136"/>
 <area shape="rect" id="node9" href="$device__pelion__log_8c.html" title="src/device/linux_desktop\l_i386/device_pelion_log.c" alt="" coords="1395,95,1565,136"/>
+<area shape="rect" id="node10" href="$device__pelion__system_8c.html" title="src/device/linux_desktop\l_i386/device_pelion_system.c" alt="" coords="1589,95,1787,136"/>
 </map>

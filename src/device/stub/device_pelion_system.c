@@ -1,5 +1,4 @@
-#ifndef I_PELION_SYSTEM
-#define I_PELION_SYSTEM
+#include "pelion_system.h"
 
 /**
  * @file device_pelion_system.c
@@ -15,7 +14,8 @@
  *
  * This method allocates memory from the system.
  */
-void *pelion_malloc(unsigned int bytes) {
+void*
+pelion_malloc(unsigned int bytes) {
 
     return 0;
 }
@@ -30,7 +30,19 @@ void *pelion_malloc(unsigned int bytes) {
  *
  * This method returns memory to the system.
  */
-void pelion_free(void *ptr) {
+void
+pelion_free(void *ptr) {
+
+}
+
+
+/**
+ * <b>(device-specific)</b>
+ *
+ * This method does device-specific initializations..
+ */
+void
+pelion_device_specific_init() {
 
 }
 
@@ -40,8 +52,7 @@ void pelion_free(void *ptr) {
  *
  * This method exits the application, and possibly reboots the system.
  */
-void pelion_exit() {
+void
+pelion_exit() {
 
 }
-
-#endif

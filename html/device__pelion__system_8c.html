@@ -85,17 +85,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">device_pelion_system.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="pelion__log_8h_source.html">pelion_log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pelion__system_8h_source.html">pelion_system.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;signal.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for device_pelion_system.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="device__pelion__system_8c__incl.png" border="0" usemap="#src_2device_2linux__desktop__i386_2device__pelion__system_8c" alt=""/></div>
+<map name="src_2device_2linux__desktop__i386_2device__pelion__system_8c" id="src_2device_2linux__desktop__i386_2device__pelion__system_8c">
+<area shape="rect" id="node2" href="pelion__log_8h.html" title="pelion_log.h" alt="" coords="20,95,111,121"/>
+<area shape="rect" id="node5" href="pelion__system_8h.html" title="pelion_system.h" alt="" coords="135,95,252,121"/>
+<area shape="rect" id="node3" href="device__defines_8h.html" title="device_defines.h" alt="" coords="5,169,125,196"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -104,10 +111,32 @@ Functions</h2></td></tr>
 <tr class="separator:a5fea907f9f93299282ad428774d42293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50b0e0c6d3956f888254259ecc5beb9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="device__pelion__system_8c.html#a50b0e0c6d3956f888254259ecc5beb9e">pelion_free</a> (void *ptr)</td></tr>
 <tr class="separator:a50b0e0c6d3956f888254259ecc5beb9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ea8a14236dffd6cf41a0c4d57d7dda"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3ea8a14236dffd6cf41a0c4d57d7dda"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ctrl_c_handler</b> (int sig_num)</td></tr>
+<tr class="separator:af3ea8a14236dffd6cf41a0c4d57d7dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6687c774f5a4be1d762286680b7dd457"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="device__pelion__system_8c.html#a6687c774f5a4be1d762286680b7dd457">pelion_device_specific_init</a> ()</td></tr>
+<tr class="separator:a6687c774f5a4be1d762286680b7dd457"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30707670de4ff5394e2a97acfabf47e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="device__pelion__system_8c.html#a30707670de4ff5394e2a97acfabf47e9">pelion_exit</a> ()</td></tr>
 <tr class="separator:a30707670de4ff5394e2a97acfabf47e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a6687c774f5a4be1d762286680b7dd457"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pelion_device_specific_init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>(device-specific)</b></p>
+<p>This method does device-specific initializations.. </p>
+
+</div>
+</div>
 <a class="anchor" id="a30707670de4ff5394e2a97acfabf47e9"></a>
 <div class="memitem">
 <div class="memproto">

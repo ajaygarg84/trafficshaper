@@ -1,7 +1,8 @@
-#ifndef I_PELION_SYSTEM
-#define I_PELION_SYSTEM
+#include "pelion_log.h"
+#include "pelion_system.h"
 
 #include <stdlib.h>
+#include <signal.h>
 
 /**
  * @file device_pelion_system.c
@@ -17,7 +18,9 @@
  *
  * This method allocates memory from the system.
  */
-void *pelion_malloc(unsigned int bytes) {
+void*
+pelion_malloc(unsigned int bytes) {
+
     return malloc(bytes);
 }
 
@@ -31,8 +34,29 @@ void *pelion_malloc(unsigned int bytes) {
  *
  * This method returns memory to the system.
  */
-void pelion_free(void *ptr) {
+void
+pelion_free(void *ptr) {
+
     free(ptr);
+}
+
+
+void ctrl_c_handler(int sig_num) {
+
+    pelion_log(EVENT, "emulation ends\n");
+    pelion_exit();
+}
+
+
+/**
+ * <b>(device-specific)</b>
+ *
+ * This method does device-specific initializations..
+ */
+void
+pelion_device_specific_init() {
+
+    signal(SIGINT, ctrl_c_handler);
 }
 
 
@@ -41,8 +65,8 @@ void pelion_free(void *ptr) {
  *
  * This method exits the application, and possibly reboots the system.
  */
-void pelion_exit() {
+void
+pelion_exit() {
+
     exit(1);
 }
-
-#endif

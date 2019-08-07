@@ -5,8 +5,16 @@
  * @file pelion_system.h
  */
 
-void *pelion_malloc(unsigned int bytes);
-void pelion_free(void *ptr);
-void pelion_exit();
+void*
+pelion_malloc(unsigned int bytes);
+
+void
+pelion_free(void *ptr);
+
+void
+pelion_device_specific_init();
+
+void
+pelion_exit();
 
 #endif

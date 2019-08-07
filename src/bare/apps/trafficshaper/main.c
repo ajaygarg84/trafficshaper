@@ -22,7 +22,6 @@ void* request_generator_infinite_loop(void *arg);
 void* token_generator_infinite_loop(void *arg);
 void* request_servicer_infinite_loop_no_busy_waiting(void *arg);
 
-
 struct Arg_Type arg_types_defs[] = {
     {
         'r', "request-generation-interval (in seconds) by T1",
@@ -74,6 +73,12 @@ int main(int argc, char *argv[]) {
 
 
     /*
+     * Do other device-specific initializations.
+     */
+    pelion_device_specific_init();
+
+
+    /*
      * Get the log-level at startup.
      */
     current_log_level = pelion_get_current_log_level();
@@ -103,6 +108,8 @@ int main(int argc, char *argv[]) {
         pelion_exit();
     }
 
+
+    pelion_log(EVENT, "emulation begin\n");
 
     /*
      * Start the threads.

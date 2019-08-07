@@ -20,5 +20,6 @@ struct Pelion_Globals {
 
 extern struct Pelion_Globals pelion_globals;
 extern PELION_CONDITION_VARIABLE Q2_cond_var;
+extern unsigned char terminate_app;
 
 #endif
