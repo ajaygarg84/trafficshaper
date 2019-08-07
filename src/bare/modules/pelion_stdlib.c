@@ -537,7 +537,23 @@ parse_cmd_line_args(int argc, char *argv[]) {
                         (argv[i][1] == arg_types[j].id) &&
                         (i < (argc - 1))
                       ) {
+
                         *(arg_types[j].value) = atoi(argv[i + 1]);
+
+                        /*
+                         * Check if stringified-numeric-argument is
+                         * really numeric or not.
+                         */
+                        {
+                            char small[10] = {0};
+
+                            pelion_sprintf(
+                                    small, "%d", *(arg_types[j].value));
+
+                            if(strlen(small) != strlen(argv[i + 1])) {
+                                *(arg_types[j].value) = 0;
+                            }
+                        }
 
                         pelion_log(DEBUG, "[-%c] [%s] ==> [%d]\n",
                                   arg_types[j].id,
@@ -558,6 +574,7 @@ parse_cmd_line_args(int argc, char *argv[]) {
      */
     j = 0;
     while(1) {
+
         if(arg_types[j].value == NULL) {
             break;
 

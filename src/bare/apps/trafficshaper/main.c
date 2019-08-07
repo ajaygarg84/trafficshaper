@@ -74,6 +74,19 @@ int main(int argc, char *argv[]) {
 
 
     /*
+     * Get the log-level at startup.
+     */
+    current_log_level = pelion_get_current_log_level();
+
+
+    /*
+     * Add some blank logs for better readability for
+     * successive restarts.
+     */
+    pelion_log(EVENT, "\n\n\n");
+
+
+    /*
      * Fetch the configurable parameters passed via command line.
      */
     parse_cmd_line_args(argc, argv);
