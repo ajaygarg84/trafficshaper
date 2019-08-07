@@ -57,6 +57,11 @@ The __logs__ file collects all the logs cumulatively.
 To filter out logs for a particular request (let's say request number 3), we can use the following tool:
 
       sh tools/linux_desktop_i386/get_logs_by_request_number.sh 3      
+      
+## In case of any issues
+
+* Kindly send __~/trafficshaper/logs__ at __ajaygargnsit@gmail.com__
+* Also, kindly notify once on either of 9711262349 (call) or 9818782593 (whatsapp).
 
 
 # Code 
