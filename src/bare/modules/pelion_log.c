@@ -36,11 +36,12 @@ pelion_log(int level, const char *format, ...) {
 
     if(level <= current_log_level) {
 
-        memset(LOG_GLOBAL_BUFFER, 0, sizeof(LOG_GLOBAL_BUFFER));
+        va_list argptr;
 
         pelion_acquire_mutex(&log_mtx);
 
-        va_list argptr;
+        memset(LOG_GLOBAL_BUFFER, 0, sizeof(LOG_GLOBAL_BUFFER));
+
         va_start(argptr, format);
         pelion_varargs(LOG_GLOBAL_BUFFER, format, argptr);
         va_end(argptr);
