@@ -107,7 +107,7 @@ void *request_servicer_infinite_loop_no_busy_waiting(void *arg) {
 
 
             pelion_log(EVENT, "r%u departs from S, service time = %sms, "
-                              "time in system = %sms\n\n",
+                              "time in system = %sms\n",
                               request_node->request_number,
                               str_time_in_us_for_servicing,
                               str_time_in_us_in_system);
