@@ -32,7 +32,8 @@ Now, the logs should start appearing in the first terminal.
       
 Very Important Notes:
 
-* Since we are doing file-based logging at a fixed location (~/trafficshaper/logs), so __only one instance of ./trafficshaper can be running at a time__ (otherwise logs from multiple instances will get jumbled up).
+* Since we are doing file-based logging at a fixed location (~/trafficshaper/logs), so __only one instance of ./trafficshaper can be running at a time__ (otherwise logs from multiple instances will get jumbled up).     
+     
 * __emulation begins__ is added by application at startup. __emulation ends__ is added when __./trafficshaper__ instance is terminated by pressing __Ctrc + C__.
 
    
