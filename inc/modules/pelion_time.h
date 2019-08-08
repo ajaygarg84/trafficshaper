@@ -6,9 +6,9 @@
  */
 
 void
-pelion_delay_us(unsigned int us);
+pelion_delay_us(unsigned long long us);
 
-unsigned long
+unsigned long long
 pelion_get_current_timestamp_us();
 
 #endif
