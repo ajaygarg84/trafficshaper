@@ -15,10 +15,10 @@
  *
  *
  * This method causes the current-thread to sleep for <b>us</b>
- * milli-seconds.
+ * micro-seconds.
  */
 void
-pelion_delay_us(unsigned int us) {
+pelion_delay_us(unsigned long us) {
 
     usleep(us);
 }
