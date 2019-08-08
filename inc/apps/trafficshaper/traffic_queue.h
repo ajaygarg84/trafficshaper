@@ -13,8 +13,8 @@ struct Traffic_Queue_Node {
 
     unsigned int request_number;
 
-    unsigned long long time_us;
-    unsigned long long in_system_time_us;
+    unsigned long time_us;
+    unsigned long in_system_time_us;
 
     struct Traffic_Queue_Node *next;
 };

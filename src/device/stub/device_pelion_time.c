@@ -13,10 +13,10 @@
  *
  *
  * This method causes the current-thread to sleep for <b>us</b>
- * micro-seconds.
+ * milli-seconds.
  */
 void
-pelion_delay_us(unsigned long long us) {
+pelion_delay_us(unsigned int us) {
 
 }
 
@@ -26,7 +26,7 @@ pelion_delay_us(unsigned long long us) {
  *
  * This method gets the current-timestamp in micro-seconds.
  */
-unsigned long long
+unsigned long
 pelion_get_current_timestamp_us() {
 
     return 0;

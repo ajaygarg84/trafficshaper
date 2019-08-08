@@ -34,7 +34,7 @@
 void *request_servicer_infinite_loop_no_busy_waiting(void *arg) {
 
     struct Traffic_Queue_Node *request_node = NULL;
-    unsigned long long service_start_time_us = 0;
+    unsigned long service_start_time_us = 0;
 
     while(1) {
 
@@ -77,7 +77,7 @@ void *request_servicer_infinite_loop_no_busy_waiting(void *arg) {
         /*
          * Emulate servicing by sleeping.
          */
-        pelion_delay_us(pelion_globals.t_time_per_request_S * 1000000ULL);
+        pelion_delay_us(pelion_globals.t_time_per_request_S * 1000000U);
 
         /*
          * Log the end of request-servicing
@@ -86,10 +86,10 @@ void *request_servicer_infinite_loop_no_busy_waiting(void *arg) {
             char str_time_in_us_for_servicing[20] = {0};
             char str_time_in_us_in_system[20] = {0};
 
-            unsigned long long time_in_us_for_servicing =
+            unsigned long time_in_us_for_servicing =
                 pelion_get_current_timestamp_us() - service_start_time_us;
 
-            unsigned long long time_in_us_in_system =
+            unsigned long time_in_us_in_system =
                 pelion_get_current_timestamp_us() -
                 request_node->in_system_time_us;
 
