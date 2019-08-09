@@ -30,7 +30,7 @@ void *request_generator_infinite_loop(void *arg) {
     while(1)
     {
         pelion_delay_us(
-                pelion_globals.r_request_generation_interval_T1 * 1000000U);
+                pelion_globals.r_request_generation_interval_T1 * 1000000ULL);
 
         requests_arrived++;
         pelion_log(EVENT, "r%u arrives, need %d tokens\n",

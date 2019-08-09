@@ -45,7 +45,7 @@
  *  dest will be written with 1.234
  */
 void
-pelion_convert_numeric_to_float(long num, unsigned short base,
+pelion_convert_numeric_to_float(long long num, unsigned short base,
                                 char *dest, int max_dest_size) {
 
     char *prefix = "";
@@ -56,7 +56,7 @@ pelion_convert_numeric_to_float(long num, unsigned short base,
         prefix = "-";
     }
 
-    pelion_sprintf(dest, "%s%lu.%lu", prefix, num / base, num % base);
+    pelion_sprintf(dest, "%s%llu.%llu", prefix, num / base, num % base);
 }
 
 
