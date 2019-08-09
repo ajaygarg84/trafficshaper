@@ -8,7 +8,7 @@
  */
 
 void
-pelion_convert_numeric_to_float(long num, unsigned short base,
+pelion_convert_numeric_to_float(long long num, unsigned short base,
                                 char *dest, int max_dest_size);
 
 void

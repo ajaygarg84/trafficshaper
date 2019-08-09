@@ -120,7 +120,7 @@ int main(int argc, char *argv[]) {
         pelion_log(INFO,  "INFO dummy log\n");
         pelion_log(WARN,  "WARN dummy log\n");
 
-        pelion_delay_us(1000000UL);
+        pelion_delay_us(1000000ULL);
     }
 
     return 0;
