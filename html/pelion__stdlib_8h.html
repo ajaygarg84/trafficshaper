@@ -120,12 +120,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a944fbc08113bef9bba75df309f315016"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__stdlib_8h.html#a944fbc08113bef9bba75df309f315016">pelion_varargs</a> (char *dest, const char *fmt, va_list var_args_params)</td></tr>
-<tr class="separator:a944fbc08113bef9bba75df309f315016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5de93b002a67227735fa507810bb69a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__stdlib_8h.html#a5de93b002a67227735fa507810bb69a8">pelion_sprintf</a> (char *dest, const char *format,...)</td></tr>
-<tr class="separator:a5de93b002a67227735fa507810bb69a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeee7ea578c238b1549d3c2a53b0b36a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__stdlib_8h.html#aeee7ea578c238b1549d3c2a53b0b36a4">pelion_convert_numeric_to_float</a> (long num, unsigned short base, char *dest, int max_dest_size)</td></tr>
-<tr class="separator:aeee7ea578c238b1549d3c2a53b0b36a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addae93a705e6fa46e765e43145e055e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__stdlib_8h.html#addae93a705e6fa46e765e43145e055e5">pelion_convert_numeric_to_float</a> (long long num, unsigned short base, char *dest, int max_dest_size)</td></tr>
+<tr class="separator:addae93a705e6fa46e765e43145e055e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06727a46b2804cb53f000eaeb699dc9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pelion__stdlib_8h.html#a06727a46b2804cb53f000eaeb699dc9a">parse_cmd_line_args</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a06727a46b2804cb53f000eaeb699dc9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -167,14 +163,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aeee7ea578c238b1549d3c2a53b0b36a4"></a>
+<a class="anchor" id="addae93a705e6fa46e765e43145e055e5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void pelion_convert_numeric_to_float </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">long long&#160;</td>
           <td class="paramname"><em>num</em>, </td>
         </tr>
         <tr>
@@ -221,90 +217,6 @@ Functions</h2></td></tr>
  dest will be written with 12.34</p>
 <p>num = 1234, base = 1000<br />
  dest will be written with 1.234 </p>
-
-</div>
-</div>
-<a class="anchor" id="a5de93b002a67227735fa507810bb69a8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void pelion_sprintf </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>dest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>format</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p><b>(bare-metal)</b></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination-Buffer.</td></tr>
-    <tr><td class="paramname">format</td><td>Format-Specifier string.</td></tr>
-    <tr><td class="paramname">...</td><td>Arguments for format-specifier variables.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This is a bare-metal version of linux's "sprintf" function. </p>
-
-</div>
-</div>
-<a class="anchor" id="a944fbc08113bef9bba75df309f315016"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void pelion_varargs </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>dest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>fmt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">va_list&#160;</td>
-          <td class="paramname"><em>var_args_params</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p><b>(bare-metal)</b></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination-buffer where the #var_args_params will be "sprinted".</td></tr>
-    <tr><td class="paramname">fmt</td><td>Format-Specifier string.</td></tr>
-    <tr><td class="paramname">var_args_params</td><td>List of variable-arguments.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>This function processes the variable-arguments, and writes them suitably into the destination-buffer. </p>
 
 </div>
 </div>
