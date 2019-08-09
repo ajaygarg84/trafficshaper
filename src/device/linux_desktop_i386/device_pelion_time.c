@@ -33,11 +33,11 @@ unsigned long long
 pelion_get_current_timestamp_us() {
 
     struct timeval current_time;
-    unsigned long result = 0;
+    unsigned long long result = 0;
 
     gettimeofday(&current_time, NULL);
 
-    result = (unsigned long)current_time.tv_sec * 1000000;
+    result = (unsigned long long)current_time.tv_sec * 1000000ULL;
     result = result + current_time.tv_usec;
 
     return result;
