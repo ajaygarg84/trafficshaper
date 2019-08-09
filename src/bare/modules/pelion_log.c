@@ -43,7 +43,7 @@ pelion_log(int level, const char *format, ...) {
         memset(LOG_GLOBAL_BUFFER, 0, sizeof(LOG_GLOBAL_BUFFER));
 
         va_start(argptr, format);
-        pelion_varargs(LOG_GLOBAL_BUFFER, format, argptr);
+        pelion_vsprintf(LOG_GLOBAL_BUFFER, format, argptr);
         va_end(argptr);
 
         pelion_write_log_on_device(LOG_GLOBAL_BUFFER);
