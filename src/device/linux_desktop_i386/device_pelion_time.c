@@ -18,7 +18,7 @@
  * micro-seconds.
  */
 void
-pelion_delay_us(unsigned long long us) {
+pelion_delay_us(unsigned long us) {
 
     usleep(us);
 }
@@ -29,7 +29,7 @@ pelion_delay_us(unsigned long long us) {
  *
  * This method gets the current-timestamp in micro-seconds.
  */
-unsigned long long
+unsigned long
 pelion_get_current_timestamp_us() {
 
     struct timeval current_time;
